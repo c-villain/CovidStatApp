@@ -14,6 +14,9 @@
 		5A7593A424640019005E2255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A7593A224640019005E2255 /* LaunchScreen.storyboard */; };
 		5A7593AF24640019005E2255 /* CovidStatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7593AE24640019005E2255 /* CovidStatTests.swift */; };
 		5A7593BA24640019005E2255 /* CovidStatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7593B924640019005E2255 /* CovidStatUITests.swift */; };
+		5A99552624660B490027BA61 /* SummaryGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99552324660B490027BA61 /* SummaryGlobal.swift */; };
+		5A99552724660B490027BA61 /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99552424660B490027BA61 /* Summary.swift */; };
+		5A99552824660B490027BA61 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A99552524660B490027BA61 /* Country.swift */; };
 		5AA9FAE1246440C6001E6E1A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9FAE0246440C6001E6E1A /* AboutView.swift */; };
 		5AA9FAE424644868001E6E1A /* SummaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9FAE324644868001E6E1A /* SummaryService.swift */; };
 		5AA9FAEA246459B2001E6E1A /* TypesExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9FAE9246459B2001E6E1A /* TypesExt.swift */; };
@@ -26,9 +29,6 @@
 		5AAA2B6224659CE500EDE0DD /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA2B5224659CE500EDE0DD /* CodableHelper.swift */; };
 		5AAA2B6324659CE500EDE0DD /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA2B5324659CE500EDE0DD /* APIs.swift */; };
 		5AAA2B6424659CE500EDE0DD /* OpenISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA2B5424659CE500EDE0DD /* OpenISO8601DateFormatter.swift */; };
-		5AAA2B6524659CE500EDE0DD /* SummaryGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA2B5624659CE500EDE0DD /* SummaryGlobal.swift */; };
-		5AAA2B6624659CE500EDE0DD /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA2B5724659CE500EDE0DD /* Country.swift */; };
-		5AAA2B6724659CE500EDE0DD /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA2B5824659CE500EDE0DD /* Summary.swift */; };
 		5AAA2B6824659CE500EDE0DD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA2B5924659CE500EDE0DD /* Extensions.swift */; };
 		5AAA2B6924659CE500EDE0DD /* JSONDataEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA2B5A24659CE500EDE0DD /* JSONDataEncoding.swift */; };
 		5AAA2B6A24659CE500EDE0DD /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA2B5B24659CE500EDE0DD /* JSONEncodingHelper.swift */; };
@@ -68,6 +68,9 @@
 		5A7593B524640019005E2255 /* CovidStatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidStatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7593B924640019005E2255 /* CovidStatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidStatUITests.swift; sourceTree = "<group>"; };
 		5A7593BB24640019005E2255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A99552324660B490027BA61 /* SummaryGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryGlobal.swift; sourceTree = "<group>"; };
+		5A99552424660B490027BA61 /* Summary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
+		5A99552524660B490027BA61 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		5AA9FADD24640948001E6E1A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AA9FAE0246440C6001E6E1A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutView.swift; path = CovidStat/Views/AboutView.swift; sourceTree = SOURCE_ROOT; };
 		5AA9FAE324644868001E6E1A /* SummaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryService.swift; sourceTree = "<group>"; };
@@ -81,9 +84,6 @@
 		5AAA2B5224659CE500EDE0DD /* CodableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
 		5AAA2B5324659CE500EDE0DD /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
 		5AAA2B5424659CE500EDE0DD /* OpenISO8601DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenISO8601DateFormatter.swift; sourceTree = "<group>"; };
-		5AAA2B5624659CE500EDE0DD /* SummaryGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryGlobal.swift; path = ../../Networking/Models/SummaryGlobal.swift; sourceTree = "<group>"; };
-		5AAA2B5724659CE500EDE0DD /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Country.swift; path = ../../Networking/Models/Country.swift; sourceTree = "<group>"; };
-		5AAA2B5824659CE500EDE0DD /* Summary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Summary.swift; path = ../../Networking/Models/Summary.swift; sourceTree = "<group>"; };
 		5AAA2B5924659CE500EDE0DD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5AAA2B5A24659CE500EDE0DD /* JSONDataEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDataEncoding.swift; sourceTree = "<group>"; };
 		5AAA2B5B24659CE500EDE0DD /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
@@ -264,9 +264,9 @@
 		5AAA2B702465ED7500EDE0DD /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				5AAA2B5624659CE500EDE0DD /* SummaryGlobal.swift */,
-				5AAA2B5724659CE500EDE0DD /* Country.swift */,
-				5AAA2B5824659CE500EDE0DD /* Summary.swift */,
+				5A99552524660B490027BA61 /* Country.swift */,
+				5A99552424660B490027BA61 /* Summary.swift */,
+				5A99552324660B490027BA61 /* SummaryGlobal.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -423,6 +423,7 @@
 				5AA9FAE424644868001E6E1A /* SummaryService.swift in Sources */,
 				5AA9FAEC24645C90001E6E1A /* SummaryViewModel.swift in Sources */,
 				5AAA2B6024659CE500EDE0DD /* URLSessionImplementations.swift in Sources */,
+				5A99552824660B490027BA61 /* Country.swift in Sources */,
 				5AA9FAF024648C14001E6E1A /* ServiceLocator.swift in Sources */,
 				5AAA2B6C24659CE500EDE0DD /* SynchronizedDictionary.swift in Sources */,
 				5AAA2B6D24659CE500EDE0DD /* Configuration.swift in Sources */,
@@ -430,17 +431,16 @@
 				5AAA2B6424659CE500EDE0DD /* OpenISO8601DateFormatter.swift in Sources */,
 				5A75939824640018005E2255 /* AppDelegate.swift in Sources */,
 				5AAA2B6A24659CE500EDE0DD /* JSONEncodingHelper.swift in Sources */,
+				5A99552724660B490027BA61 /* Summary.swift in Sources */,
 				5AAA2B6824659CE500EDE0DD /* Extensions.swift in Sources */,
 				5AAA2B6224659CE500EDE0DD /* CodableHelper.swift in Sources */,
 				5AAA2B6B24659CE500EDE0DD /* Models.swift in Sources */,
 				5A75939A24640018005E2255 /* SceneDelegate.swift in Sources */,
-				5AAA2B6624659CE500EDE0DD /* Country.swift in Sources */,
-				5AAA2B6724659CE500EDE0DD /* Summary.swift in Sources */,
 				5AAA2B6324659CE500EDE0DD /* APIs.swift in Sources */,
 				5AAA2B6124659CE500EDE0DD /* SummaryOfTotalCasesAPI.swift in Sources */,
 				5AA9FAEE24648815001E6E1A /* SummaryView.swift in Sources */,
 				5AEDC1B0246408A300D55970 /* ContentView.swift in Sources */,
-				5AAA2B6524659CE500EDE0DD /* SummaryGlobal.swift in Sources */,
+				5A99552624660B490027BA61 /* SummaryGlobal.swift in Sources */,
 				5AAA2B5F24659CE500EDE0DD /* APIHelper.swift in Sources */,
 				5AA9FAEA246459B2001E6E1A /* TypesExt.swift in Sources */,
 			);
