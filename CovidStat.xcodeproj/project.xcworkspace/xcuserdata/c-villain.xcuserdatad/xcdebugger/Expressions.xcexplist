@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SummaryViewModel.loadSummary():SummaryViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SummaryService.loadCovidSummary(completion:):SummaryService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in SummaryView.body.getter:SummaryView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SummaryView.init():SummaryView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SummaryViewModel.init(summaryService:):SummaryViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ContentView.body.getter:ContentView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static API.loadCovidStatSummaryWithRequestBuilder():CityAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
