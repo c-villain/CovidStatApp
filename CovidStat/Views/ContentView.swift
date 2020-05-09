@@ -26,9 +26,7 @@ struct ContentView: View {
                     }
             }
             
-            Button(action: {
-                self.selection = 1
-            }, label: {Text("show countries")})
+            CountriesView(viewModel: SummaryViewModel(summaryService: locator.getService()))
                 .tag(1)
                 .tabItem{
                     VStack{
