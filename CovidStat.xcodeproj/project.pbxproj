@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		5A2B42A72466DB6400B41317 /* CountryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B42A42466DB6400B41317 /* CountryRow.swift */; };
 		5A2B42A82466DB6400B41317 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B42A52466DB6400B41317 /* CountriesView.swift */; };
 		5A2B42A92466DB6400B41317 /* CountryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B42A62466DB6400B41317 /* CountryDetail.swift */; };
+		5A2B42AC246848DA00B41317 /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2B42AB246848DA00B41317 /* SwiftUIRefresh */; };
 		5A75939824640018005E2255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A75939724640018005E2255 /* AppDelegate.swift */; };
 		5A75939A24640018005E2255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A75939924640018005E2255 /* SceneDelegate.swift */; };
 		5A75939E24640019005E2255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A75939D24640019005E2255 /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A2B42AC246848DA00B41317 /* SwiftUIRefresh in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +334,9 @@
 			dependencies = (
 			);
 			name = CovidStat;
+			packageProductDependencies = (
+				5A2B42AB246848DA00B41317 /* SwiftUIRefresh */,
+			);
 			productName = CovidStat;
 			productReference = 5A75939424640018005E2255 /* CovidStat.app */;
 			productType = "com.apple.product-type.application";
@@ -404,6 +409,9 @@
 				Base,
 			);
 			mainGroup = 5A75938B24640018005E2255;
+			packageReferences = (
+				5A2B42AA246848DA00B41317 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
+			);
 			productRefGroup = 5A75939524640018005E2255 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -793,6 +801,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A2B42AA246848DA00B41317 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A2B42AB246848DA00B41317 /* SwiftUIRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A2B42AA246848DA00B41317 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
+			productName = SwiftUIRefresh;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A75938C24640018005E2255 /* Project object */;
 }

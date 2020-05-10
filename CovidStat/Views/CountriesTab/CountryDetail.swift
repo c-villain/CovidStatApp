@@ -30,7 +30,6 @@ struct CountryDetail: View {
                 Spacer()
 
             }
-            
         } //NavigationView
             .navigationBarTitle("\(country.country ?? " ")").font(.headline)
     }
