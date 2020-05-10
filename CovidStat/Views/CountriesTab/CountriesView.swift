@@ -28,6 +28,7 @@ struct CountriesView: View {
                 }, id: \.country){
                         country in NavigationLink(
                         destination: CountryDetail(country: country)){
+                            
                             CountryRow(country: country)
                         }
                     
