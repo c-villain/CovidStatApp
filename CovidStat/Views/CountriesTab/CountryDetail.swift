@@ -28,7 +28,6 @@ struct CountryDetail: View {
                 Text("total recovered: \(country.totalRecovered ?? 0)").font(.title)
                 
                 Spacer()
-
             }
         } //NavigationView
             .navigationBarTitle("\(country.country ?? " ")").font(.headline)

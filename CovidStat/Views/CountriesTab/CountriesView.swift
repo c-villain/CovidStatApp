@@ -25,7 +25,7 @@ struct CountriesView: View {
                 List((self.viewModel.summary?.countries ?? [Country]()).filter{
                     searchCountry.isEmpty ? true :
                         ($0.country?.lowercased().starts(with: searchCountry.lowercased()) ?? true)
-                }, id: \.id){
+                }, id: \.country){
                         country in NavigationLink(
                         destination: CountryDetail(country: country)){
                             CountryRow(country: country)
@@ -38,7 +38,7 @@ struct CountriesView: View {
                         self.viewModel.loadSummary()
                     }
                 }
-            }
+            } //VStack
             .navigationBarTitle("Countries", displayMode: .inline)
         } //NavigationView
     } //some View
