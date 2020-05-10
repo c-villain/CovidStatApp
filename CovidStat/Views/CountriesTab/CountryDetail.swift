@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct CountryDetail: View {
-//    @EnvironmentObject var viewModel: SummaryViewModel
     
     let country: Country
     
@@ -33,7 +32,7 @@ struct CountryDetail: View {
             }
             
         } //NavigationView
-        .navigationBarTitle("\(country.country ?? " ")")
+            .navigationBarTitle("\(country.country ?? " ")").font(.headline)
     }
 }
 
