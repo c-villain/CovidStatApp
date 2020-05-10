@@ -6,6 +6,7 @@
 //  Copyright © 2020 Alexander Kraev. All rights reserved.
 //
 
+import Foundation
 import SwiftUI
 
 struct CountriesView: View {
@@ -15,15 +16,19 @@ struct CountriesView: View {
     @State private var searchCountry : String = ""
     
     var body: some View {
+        
         NavigationView{
             VStack{
-                SearchBar(text: $searchCountry)
-                
-                List(viewModel.summary?.countries ?? [Country]()) {
-                    
-                    country in NavigationLink(
-                    destination: CountryDetail(country: country)){
-                        CountryRow(country: country)
+                SearchBar(text: $searchCountry, placeholder: "Search country")
+                List{
+                    ForEach((self.viewModel.summary?.countries ?? [Country]()).filter{
+                        searchCountry.isEmpty ? true :
+                            ($0.country?.lowercased().starts(with: searchCountry.lowercased()) ?? true)
+                    }){
+                        country in NavigationLink(
+                        destination: CountryDetail(country: country)){
+                            CountryRow(country: country)
+                        }
                     }
                 }//List
             }
