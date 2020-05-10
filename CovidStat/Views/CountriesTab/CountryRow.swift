@@ -13,10 +13,19 @@ struct CountryRow: View {
     let country: Country
     
     var body: some View {
-        VStack (alignment: .leading){
-            Text("\(country.country ?? "")").font(.headline)
-            Text("total confirmed: \(country.totalConfirmed ?? 0)")
-            Text("total deaths: \(country.totalDeaths ?? 0)")
+        HStack{
+            Text(country.countryCode ?? "")
+                .padding()
+                .foregroundColor(Color.white)
+                .background(Color.blue)
+                .clipShape(Circle())
+                .font(.custom("", size: 22))
+            
+            VStack (alignment: .leading){
+                Text("\(country.country ?? "")").font(.headline)
+                Text("total confirmed: \(country.totalConfirmed ?? 0)")
+                Text("total deaths: \(country.totalDeaths ?? 0)")
+            }
         }
     }
 }
