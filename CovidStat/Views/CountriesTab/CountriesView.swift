@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftUIRefresh
 
 struct CountriesView: View {
     
@@ -15,22 +16,28 @@ struct CountriesView: View {
     
     @State private var searchCountry : String = ""
     
+    @State private var isShowing = false
     var body: some View {
         
         NavigationView{
             VStack{
                 SearchBar(text: $searchCountry, placeholder: "Search country")
-                List{
-                    ForEach((self.viewModel.summary?.countries ?? [Country]()).filter{
-                        searchCountry.isEmpty ? true :
-                            ($0.country?.lowercased().starts(with: searchCountry.lowercased()) ?? true)
-                    }){
+                List((self.viewModel.summary?.countries ?? [Country]()).filter{
+                    searchCountry.isEmpty ? true :
+                        ($0.country?.lowercased().starts(with: searchCountry.lowercased()) ?? true)
+                }, id: \.id){
                         country in NavigationLink(
                         destination: CountryDetail(country: country)){
                             CountryRow(country: country)
                         }
-                    }
+                    
                 }//List
+                .pullToRefresh(isShowing: $isShowing) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.isShowing = false
+                        self.viewModel.loadSummary()
+                    }
+                }
             }
             .navigationBarTitle("Countries", displayMode: .inline)
         } //NavigationView
