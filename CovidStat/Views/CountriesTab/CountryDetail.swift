@@ -7,30 +7,37 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct CountryDetail: View {
     
     let country: Country
     
     var body: some View {
-        NavigationView {
-            VStack{
-                Text("new confirmed: \(country.newConfirmed ?? 0)").font(.title)
-                
-                Text("new deaths: \(country.newDeaths ?? 0)").font(.title)
-                
-                Text("total recovered: \(country.newRecovered ?? 0)").font(.title)
-                
-                Text("total confirmed: \(country.totalConfirmed ?? 0)").font(.title)
-               
-                Text("total deaths: \(country.totalDeaths ?? 0)").font(.title)
-                
-                Text("total recovered: \(country.totalRecovered ?? 0)").font(.title)
-                
+        VStack{
+            VStack(alignment: .leading){
+                Group{
+                    Text("\(country.country ?? "")").font(.title).bold()
+                    Spacer()
+                    Spacer()
+                    Text("new confirmed: \(country.newConfirmed ?? 0)").font(.title)
+                    
+                    Text("new deaths: \(country.newDeaths ?? 0)").font(.title)
+                    
+                    Text("total recovered: \(country.newRecovered ?? 0)").font(.title)
+                    
+                    Text("total confirmed: \(country.totalConfirmed ?? 0)").font(.title)
+                    
+                    Text("total deaths: \(country.totalDeaths ?? 0)").font(.title)
+                    
+                    Text("total recovered: \(country.totalRecovered ?? 0)").font(.title)
+                }.offset(x: 20, y: 30)
+                LineView(data: [8,23,54,32,12,37,7,23,43], title: "Cases chart", legend: "Live stat").padding().offset(x: 0, y: -20)
+                Spacer()
                 Spacer()
             }
-        } //NavigationView
-            .navigationBarTitle("\(country.country ?? " ")").font(.headline)
+            
+        }
     }
 }
 
