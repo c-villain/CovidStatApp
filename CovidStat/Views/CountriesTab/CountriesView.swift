@@ -13,6 +13,7 @@ import SwiftUIRefresh
 struct CountriesView: View {
     
     @ObservedObject var viewModel: SummaryViewModel
+    @EnvironmentObject var locator: ServiceLocator
     
     @State private var searchCountry : String = ""
     
@@ -27,7 +28,8 @@ struct CountriesView: View {
                         ($0.country?.lowercased().starts(with: searchCountry.lowercased()) ?? true)
                 }, id: \.country){
                         country in NavigationLink(
-                        destination: CountryDetail(country: country)){
+                            destination: CountryDetail(viewModel: CasesViewModel(casesService: self.locator.getService()),
+                                                   country: country)){
                             
                             CountryRow(country: country)
                         }
@@ -35,8 +37,8 @@ struct CountriesView: View {
                 }//List
                 .pullToRefresh(isShowing: $isShowing) {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.isShowing = false
                         self.viewModel.loadSummary()
+                        self.isShowing = false
                     }
                 }
             } //VStack

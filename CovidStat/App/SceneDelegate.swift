@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let locator = ServiceLocator()
         locator.registerService(service: SummaryService() as SummaryService)
+        locator.registerService(service: CasesService() as CasesService)
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView().environmentObject(locator)

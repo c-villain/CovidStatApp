@@ -14,7 +14,6 @@ final class SummaryViewModel : ObservableObject
     
     private let summaryService: SummaryService
     
-    
     init(summaryService: SummaryService) {
         self.summaryService = summaryService
         self.loadSummary()

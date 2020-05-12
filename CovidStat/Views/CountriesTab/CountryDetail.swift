@@ -11,6 +11,8 @@ import SwiftUICharts
 
 struct CountryDetail: View {
     
+    @ObservedObject var viewModel: CasesViewModel
+    
     let country: Country
     
     var body: some View {
@@ -32,11 +34,16 @@ struct CountryDetail: View {
                     
                     Text("total recovered: \(country.totalRecovered ?? 0)").font(.title)
                 }.offset(x: 20, y: 30)
-                LineView(data: [8,23,54,32,12,37,7,23,43], title: "Cases chart", legend: "Live stat").padding().offset(x: 0, y: -20)
+                
+                LineView(data: self.viewModel.totalCases.map{Double($0.totalConfirmed ?? 0)}, title: "Cases chart", legend: "Live stat").padding().offset(x: 0, y: -20)
+                
                 Spacer()
                 Spacer()
             }
-            
+        .onAppear()
+            {
+                self.viewModel.loadAllCases(countrySlug: self.country.slug ?? "")
+            }
         }
     }
 }
@@ -44,7 +51,7 @@ struct CountryDetail: View {
 
 struct CountryDetail_Previews: PreviewProvider {
     static var previews: some View {
-        CountryDetail(country: Country(country: "Belgium", countryCode: "BE", slug: "belgium", newConfirmed: 0, totalConfirmed: 52011, newDeaths: 0, totalDeaths: 8521, newRecovered: 0, totalRecovered: 13201, date: "2020-05-09T09:48:33Z"))
+        CountryDetail(viewModel: CasesViewModel(casesService: CasesService() as CasesService), country: Country(country: "Belgium", countryCode: "BE", slug: "belgium", newConfirmed: 0, totalConfirmed: 52011, newDeaths: 0, totalDeaths: 8521, newRecovered: 0, totalRecovered: 13201, date: "2020-05-09T09:48:33Z"))
     }
 }
 
