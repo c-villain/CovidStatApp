@@ -24,7 +24,7 @@ struct AboutView: View {
         VStack(alignment: .leading){
             Group{
                 Spacer()
-                Text("About").font(.largeTitle)
+                Text("About").font(.largeTitle).bold()
                 Spacer()
                 
                 Text("This is an open source project")
@@ -44,7 +44,7 @@ struct AboutView: View {
                 Spacer()
                 Spacer()
                 Spacer()
-                Text("Contact").font(.largeTitle)
+                Text("Contact").font(.largeTitle).bold()
                 Spacer()
                 Text("If you have any questions or suggestions for improvement, please contact me:")
                 linkButton(link: "t.me/cvillain", buttonText: "t.me/cvillain").font(.headline)
