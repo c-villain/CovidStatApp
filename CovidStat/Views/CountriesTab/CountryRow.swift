@@ -14,17 +14,19 @@ struct CountryRow: View {
     
     var body: some View {
         HStack{
-            Text(country.countryCode ?? "")
-                .padding()
-                .foregroundColor(Color.white)
-                .background(Color.blue)
-                .clipShape(Circle())
-                .font(.custom("", size: 22))
+//            Text(country.countryCode ?? "")
+//                .padding()
+//                .foregroundColor(Color.white)
+//                .background(Color.blue)
+//                .clipShape(Circle())
+//                .font(.custom("", size: 22))
+//                .offset(x: 0, y: 0)
             
             VStack (alignment: .leading){
                 Text("\(country.country ?? "")").font(.headline)
                 Text("total confirmed: \(country.totalConfirmed ?? 0)")
                 Text("total deaths: \(country.totalDeaths ?? 0)")
+                Text("new confirmed: \(country.newConfirmed ?? 0)")
             }
         }
     }

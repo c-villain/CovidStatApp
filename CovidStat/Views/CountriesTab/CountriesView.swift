@@ -27,21 +27,45 @@ struct CountriesView: View {
                     searchCountry.isEmpty ? true :
                         ($0.country?.lowercased().starts(with: searchCountry.lowercased()) ?? true)
                 }, id: \.country){
-                        country in NavigationLink(
-                            destination: CountryDetail(viewModel: CasesViewModel(casesService: self.locator.getService()),
+                    country in NavigationLink(
+                        destination: CountryDetail(viewModel: CasesViewModel(casesService: self.locator.getService()),
                                                    country: country)){
-                            CountryRow(country: country)
-                        }
+                                                    CountryRow(country: country)
+                    }
                     
                 }//List
-                .pullToRefresh(isShowing: $isShowing) {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.viewModel.loadSummary()
-                        self.isShowing = false
-                    }
+                    .pullToRefresh(isShowing: $isShowing) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self.viewModel.loadSummary()
+                            self.isShowing = false
+                        }
                 }
             } //VStack
-            .navigationBarTitle("Countries", displayMode: .inline)
+                .navigationBarTitle("Countries", displayMode: .inline)
+                .navigationBarItems(trailing:
+                    HStack{
+                        Button(action: {
+                            self.viewModel.sortCountriesByDailyCases()
+                        }) {
+                            Image(systemName: "chevron.down.circle.fill")
+                        }
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Button(action: {
+                            self.viewModel.sortCountriesByTotalDeath()
+                        }) {
+                            Image(systemName: "person.badge.minus.fill")
+                        }
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Button(action: {
+                            self.viewModel.sortCountriesInAlphabeticalOrder()
+                        }) {
+                            Image(systemName: "textformat.abc")
+                        }}
+            )
         } //NavigationView
     } //some View
 } //View

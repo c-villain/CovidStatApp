@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct SummaryView: View {
     
@@ -18,21 +19,27 @@ struct SummaryView: View {
             VStack{
                 Text("on: \(self.viewModel.summary?.formatedDate ?? "")").font(.title)
                 Spacer()
-                Text("Total death: \(self.viewModel.summary?.global?.totalDeaths ?? 0)").font(.largeTitle)
                 Text("Total confirmed: \(self.viewModel.summary?.global?.totalConfirmed ?? 0)").font(.title)
                 Text("Total recovered:  \(self.viewModel.summary?.global?.totalRecovered ?? 0)").font(.title)
+                Text("Total death: \(self.viewModel.summary?.global?.totalDeaths ?? 0)").font(.largeTitle)
                 Spacer()
-                HStack{
-                    Spacer()
-                    Button(action: {
-                        self.viewModel.loadSummary()
-                    }) {
-                        Text("Refresh").padding()
-                    }.background(Color.white).padding()
-                    Spacer()
-                }
+                PieChartView(data:
+                    [Double(self.viewModel.summary?.global?.totalDeaths ?? 0),
+                     Double(self.viewModel.summary?.global?.totalConfirmed ?? 0),
+                     Double(self.viewModel.summary?.global?.totalRecovered ?? 0)],
+                             title: "Stat components",
+                             style: Styles.pieChartStyleOne,
+                             form: ChartForm.medium)
+                Spacer()
             }
             .navigationBarTitle("COVID-19 Summary")
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.viewModel.loadSummary()
+                }) {
+                    Image(systemName: "arrow.clockwise")
+                }
+            )
         } //NavigationView
     }
 }

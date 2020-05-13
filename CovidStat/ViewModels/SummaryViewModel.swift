@@ -19,6 +19,33 @@ final class SummaryViewModel : ObservableObject
         self.loadSummary()
     }
     
+    func sortCountriesInAlphabeticalOrder() -> Void{
+        guard self.summary != nil || self.summary?.countries != nil else {return}
+        
+        let sorted = self.summary?.countries?.sorted{
+            $0.country! < $1.country!}
+        
+        self.summary?.countries = sorted
+    }
+    
+    func sortCountriesByDailyCases() -> Void{
+        guard self.summary != nil || self.summary?.countries != nil else {return}
+        
+        let sorted = self.summary?.countries?.sorted{
+            $0.newConfirmed! > $1.newConfirmed!}
+        
+        self.summary?.countries = sorted
+    }
+    
+    func sortCountriesByTotalDeath() -> Void{
+        guard self.summary != nil || self.summary?.countries != nil else {return}
+        
+        let sorted = self.summary?.countries?.sorted{
+            $0.totalDeaths! > $1.totalDeaths!}
+        
+        self.summary?.countries = sorted
+    }
+    
     func loadSummary() -> Void{
         summaryService.loadCovidSummary() { result in
             DispatchQueue.main.async {
