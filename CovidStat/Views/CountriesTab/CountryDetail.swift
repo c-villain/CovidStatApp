@@ -21,17 +21,19 @@ struct CountryDetail: View {
                 Group{
                     Text("\(country.country ?? "")").font(.title).bold()
                     Spacer()
-                    Spacer()
-                    Text("new confirmed: \(country.newConfirmed ?? 0)").font(.title)
-                    Text("new deaths: \(country.newDeaths ?? 0)").font(.title)
-                    Text("new recovered: \(country.newRecovered ?? 0)").font(.title)
-                    Text("total confirmed: \(country.totalConfirmed ?? 0)").font(.title)
-                    Text("total deaths: \(country.totalDeaths ?? 0)").font(.title)
-                    Text("total recovered: \(country.totalRecovered ?? 0)").font(.title)
+                    
+                    Text("new confirmed: \(country.newConfirmed ?? 0)").font(.custom("", size: 22))
+                    Text("new deaths: \(country.newDeaths ?? 0)").font(.custom("", size: 22))
+                    Text("new recovered: \(country.newRecovered ?? 0)").font(.custom("", size: 22))
+                    Text("total confirmed: \(country.totalConfirmed ?? 0)").font(.custom("", size: 22))
+                    Text("total deaths: \(country.totalDeaths ?? 0)").font(.custom("", size: 22))
+                    Text("total recovered: \(country.totalRecovered ?? 0)").font(.custom("", size: 22) )
                 }.offset(x: 20, y: 20)
+                
                 ScrollView(.vertical, showsIndicators: true){
                     VStack(spacing: 150){
                         LineView(data: self.viewModel.totalCases.map{Double($0.confirmed               ?? 0)}, title: "Total confirmed", legend: "Confirmed cases stat since first recorded case").padding().offset(x: 0, y: 20).onAppear(){
+                            self.viewModel.clearCases()
                             self.viewModel.loadAllCases(countrySlug: self.country.slug ?? "")}
                         
                         Spacer()
@@ -44,6 +46,14 @@ struct CountryDetail: View {
                         Spacer()
                     }
                 }.offset(x: 0, y: 20)
+                .navigationBarItems(trailing:
+                    Button(action: {
+                        self.viewModel.clearCases()
+                        self.viewModel.loadAllCases(countrySlug: self.country.slug ?? "")
+                    }) {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                )
             }
         }
     }

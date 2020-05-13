@@ -19,6 +19,10 @@ final class CasesViewModel : ObservableObject
         self.casesService = casesService
     }
     
+    func clearCases() -> Void{
+        self.totalCases.removeAll()
+    }
+    
     func loadAllCases(countrySlug: String) -> Void{
         casesService.loadAllCases(countrySlug: countrySlug) { result in
             DispatchQueue.main.async {
