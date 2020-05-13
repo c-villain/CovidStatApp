@@ -30,7 +30,6 @@ struct CountriesView: View {
                         country in NavigationLink(
                             destination: CountryDetail(viewModel: CasesViewModel(casesService: self.locator.getService()),
                                                    country: country)){
-                            
                             CountryRow(country: country)
                         }
                     

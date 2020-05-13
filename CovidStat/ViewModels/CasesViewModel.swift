@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class CasesViewModel : ObservableObject
 {

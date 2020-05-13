@@ -13,7 +13,7 @@ struct CountryDetail: View {
     
     @ObservedObject var viewModel: CasesViewModel
     
-    let country: Country
+    @State var country: Country
     
     var body: some View {
         VStack{
@@ -26,7 +26,7 @@ struct CountryDetail: View {
                     
                     Text("new deaths: \(country.newDeaths ?? 0)").font(.title)
                     
-                    Text("total recovered: \(country.newRecovered ?? 0)").font(.title)
+                    Text("new recovered: \(country.newRecovered ?? 0)").font(.title)
                     
                     Text("total confirmed: \(country.totalConfirmed ?? 0)").font(.title)
                     
@@ -35,15 +35,14 @@ struct CountryDetail: View {
                     Text("total recovered: \(country.totalRecovered ?? 0)").font(.title)
                 }.offset(x: 20, y: 30)
                 
-                LineView(data: self.viewModel.totalCases.map{Double($0.totalConfirmed ?? 0)}, title: "Cases chart", legend: "Live stat").padding().offset(x: 0, y: -20)
+                LineView(data: self.viewModel.totalCases.map{Double($0.confirmed               ?? 0)}, title: "Cases chart", legend: "Total confirmed").padding().offset(x: 0, y: -20).onAppear(){
+                    self.viewModel.loadAllCases(countrySlug: self.country.slug ?? "")
+                }
                 
                 Spacer()
                 Spacer()
             }
-        .onAppear()
-            {
-                self.viewModel.loadAllCases(countrySlug: self.country.slug ?? "")
-            }
+            
         }
     }
 }
