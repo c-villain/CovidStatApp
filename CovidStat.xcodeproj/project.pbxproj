@@ -18,6 +18,14 @@
 		5A2B42B7246AE7BF00B41317 /* AllCasesCountryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B42B6246AE7BF00B41317 /* AllCasesCountryAPI.swift */; };
 		5A2B42B9246B306D00B41317 /* CasesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B42B8246B306D00B41317 /* CasesService.swift */; };
 		5A2B42BB246B42DE00B41317 /* CasesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B42BA246B42DE00B41317 /* CasesViewModel.swift */; };
+		5A612923246C966B0001F751 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612921246C966B0001F751 /* Double.swift */; };
+		5A612924246C966B0001F751 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612922246C966B0001F751 /* Color.swift */; };
+		5A61292F246C96E60001F751 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A61292D246C96E60001F751 /* PieChart.swift */; };
+		5A612930246C96E60001F751 /* PieChartSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A61292E246C96E60001F751 /* PieChartSlide.swift */; };
+		5A612932246C978F0001F751 /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612931246C978F0001F751 /* PieChartViewModel.swift */; };
+		5A612937246C985D0001F751 /* SlideData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612934246C985D0001F751 /* SlideData.swift */; };
+		5A612938246C985D0001F751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612935246C985D0001F751 /* DataItem.swift */; };
+		5A612939246C985D0001F751 /* PieChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612936246C985D0001F751 /* PieChartData.swift */; };
 		5A75939824640018005E2255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A75939724640018005E2255 /* AppDelegate.swift */; };
 		5A75939A24640018005E2255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A75939924640018005E2255 /* SceneDelegate.swift */; };
 		5A75939E24640019005E2255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A75939D24640019005E2255 /* Assets.xcassets */; };
@@ -75,6 +83,14 @@
 		5A2B42B6246AE7BF00B41317 /* AllCasesCountryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCasesCountryAPI.swift; sourceTree = "<group>"; };
 		5A2B42B8246B306D00B41317 /* CasesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesService.swift; sourceTree = "<group>"; };
 		5A2B42BA246B42DE00B41317 /* CasesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesViewModel.swift; sourceTree = "<group>"; };
+		5A612921246C966B0001F751 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		5A612922246C966B0001F751 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		5A61292D246C96E60001F751 /* PieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		5A61292E246C96E60001F751 /* PieChartSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSlide.swift; sourceTree = "<group>"; };
+		5A612931246C978F0001F751 /* PieChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewModel.swift; sourceTree = "<group>"; };
+		5A612934246C985D0001F751 /* SlideData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideData.swift; sourceTree = "<group>"; };
+		5A612935246C985D0001F751 /* DataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
+		5A612936246C985D0001F751 /* PieChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartData.swift; sourceTree = "<group>"; };
 		5A75939424640018005E2255 /* CovidStat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidStat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A75939724640018005E2255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A75939924640018005E2255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +157,7 @@
 		5A2B42982466D97100B41317 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				5A612920246C963E0001F751 /* PieChart */,
 				5A2B429B2466DAAF00B41317 /* SearchBar.swift */,
 			);
 			path = Controls;
@@ -155,6 +172,36 @@
 			);
 			path = CountriesTab;
 			sourceTree = "<group>";
+		};
+		5A612920246C963E0001F751 /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				5A612933246C985D0001F751 /* Model */,
+				5A61292C246C96E60001F751 /* Views */,
+			);
+			path = PieChart;
+			sourceTree = "<group>";
+		};
+		5A61292C246C96E60001F751 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A61292D246C96E60001F751 /* PieChart.swift */,
+				5A61292E246C96E60001F751 /* PieChartSlide.swift */,
+			);
+			name = Views;
+			path = CovidStat/Views/Controls/PieChart/Views;
+			sourceTree = SOURCE_ROOT;
+		};
+		5A612933246C985D0001F751 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A612934246C985D0001F751 /* SlideData.swift */,
+				5A612935246C985D0001F751 /* DataItem.swift */,
+				5A612936246C985D0001F751 /* PieChartData.swift */,
+			);
+			name = Model;
+			path = CovidStat/Views/Controls/PieChart/Model;
+			sourceTree = SOURCE_ROOT;
 		};
 		5A75938B24640018005E2255 = {
 			isa = PBXGroup;
@@ -248,6 +295,7 @@
 			children = (
 				5AA9FAEB24645C90001E6E1A /* SummaryViewModel.swift */,
 				5A2B42BA246B42DE00B41317 /* CasesViewModel.swift */,
+				5A612931246C978F0001F751 /* PieChartViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -318,6 +366,8 @@
 		5AAA2B712466098800EDE0DD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5A612922246C966B0001F751 /* Color.swift */,
+				5A612921246C966B0001F751 /* Double.swift */,
 				5AA9FAE9246459B2001E6E1A /* TypesExt.swift */,
 			);
 			path = Extensions;
@@ -474,8 +524,11 @@
 				5AAA2B6924659CE500EDE0DD /* JSONDataEncoding.swift in Sources */,
 				5AA9FAE424644868001E6E1A /* SummaryService.swift in Sources */,
 				5A2B42A82466DB6400B41317 /* CountriesView.swift in Sources */,
+				5A612937246C985D0001F751 /* SlideData.swift in Sources */,
+				5A612938246C985D0001F751 /* DataItem.swift in Sources */,
 				5AA9FAEC24645C90001E6E1A /* SummaryViewModel.swift in Sources */,
 				5AAA2B6024659CE500EDE0DD /* URLSessionImplementations.swift in Sources */,
+				5A612939246C985D0001F751 /* PieChartData.swift in Sources */,
 				5A99552824660B490027BA61 /* Country.swift in Sources */,
 				5AA9FAF024648C14001E6E1A /* ServiceLocator.swift in Sources */,
 				5AAA2B6C24659CE500EDE0DD /* SynchronizedDictionary.swift in Sources */,
@@ -492,16 +545,21 @@
 				5AAA2B6824659CE500EDE0DD /* Extensions.swift in Sources */,
 				5AAA2B6224659CE500EDE0DD /* CodableHelper.swift in Sources */,
 				5AAA2B6B24659CE500EDE0DD /* Models.swift in Sources */,
+				5A612932246C978F0001F751 /* PieChartViewModel.swift in Sources */,
+				5A612924246C966B0001F751 /* Color.swift in Sources */,
 				5A2B42A72466DB6400B41317 /* CountryRow.swift in Sources */,
 				5A75939A24640018005E2255 /* SceneDelegate.swift in Sources */,
+				5A612930246C96E60001F751 /* PieChartSlide.swift in Sources */,
 				5AAA2B6324659CE500EDE0DD /* APIs.swift in Sources */,
 				5AAA2B6124659CE500EDE0DD /* SummaryOfTotalCasesAPI.swift in Sources */,
 				5A2B42B7246AE7BF00B41317 /* AllCasesCountryAPI.swift in Sources */,
+				5A61292F246C96E60001F751 /* PieChart.swift in Sources */,
 				5A2B429C2466DAAF00B41317 /* SearchBar.swift in Sources */,
 				5AEDC1B0246408A300D55970 /* ContentView.swift in Sources */,
 				5A99552624660B490027BA61 /* SummaryGlobal.swift in Sources */,
 				5A2B42A92466DB6400B41317 /* CountryDetail.swift in Sources */,
 				5AAA2B5F24659CE500EDE0DD /* APIHelper.swift in Sources */,
+				5A612923246C966B0001F751 /* Double.swift in Sources */,
 				5AA9FAEA246459B2001E6E1A /* TypesExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

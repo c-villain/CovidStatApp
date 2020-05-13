@@ -12,6 +12,7 @@ import SwiftUICharts
 struct SummaryView: View {
     
     @ObservedObject var viewModel: SummaryViewModel
+    @ObservedObject var chartViewModel: PieChartViewModel
     
     var body: some View {
         
@@ -19,23 +20,30 @@ struct SummaryView: View {
             VStack{
                 Text("on: \(self.viewModel.summary?.formatedDate ?? "")").font(.title)
                 Spacer()
+                Spacer()
                 Text("Total confirmed: \(self.viewModel.summary?.global?.totalConfirmed ?? 0)").font(.title)
                 Text("Total recovered:  \(self.viewModel.summary?.global?.totalRecovered ?? 0)").font(.title)
                 Text("Total death: \(self.viewModel.summary?.global?.totalDeaths ?? 0)").font(.largeTitle)
                 Spacer()
-                PieChartView(data:
-                    [Double(self.viewModel.summary?.global?.totalDeaths ?? 0),
-                     Double(self.viewModel.summary?.global?.totalConfirmed ?? 0),
-                     Double(self.viewModel.summary?.global?.totalRecovered ?? 0)],
-                             title: "Stat components",
-                             style: Styles.pieChartStyleOne,
-                             form: ChartForm.medium)
+                GeometryReader { geometry in
+                    VStack {
+                        PieChart(pieChartData: self.chartViewModel.pieChartData)
+                            .frame(width: geometry.size.width * 0.8,
+                                   height: geometry.size.width * 0.8)
+                            .padding(.top, 20)
+                    }
+                    .onAppear {
+                        self.chartViewModel.generateChartData(summary: self.viewModel.summary?.global)
+                    }
+                }
+
                 Spacer()
             }
             .navigationBarTitle("COVID-19 Summary")
             .navigationBarItems(trailing:
                 Button(action: {
                     self.viewModel.loadSummary()
+                    self.chartViewModel.generateChartData(summary: self.viewModel.summary?.global)
                 }) {
                     Image(systemName: "arrow.clockwise")
                 }
@@ -46,6 +54,7 @@ struct SummaryView: View {
 
 struct SummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        SummaryView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService))
+        SummaryView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService), chartViewModel: PieChartViewModel()
+        )
     }
 }

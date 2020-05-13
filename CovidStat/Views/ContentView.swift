@@ -17,7 +17,7 @@ struct ContentView: View {
         
         TabView(selection: $selection){
             
-            SummaryView(viewModel: SummaryViewModel(summaryService: locator.getService()))
+            SummaryView(viewModel: SummaryViewModel(summaryService: locator.getService()), chartViewModel: PieChartViewModel())
                 .tag(0)
                 .tabItem{
                     VStack{
