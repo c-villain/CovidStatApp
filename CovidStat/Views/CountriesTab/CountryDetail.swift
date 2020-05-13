@@ -23,15 +23,10 @@ struct CountryDetail: View {
                     Spacer()
                     Spacer()
                     Text("new confirmed: \(country.newConfirmed ?? 0)").font(.title)
-                    
                     Text("new deaths: \(country.newDeaths ?? 0)").font(.title)
-                    
                     Text("new recovered: \(country.newRecovered ?? 0)").font(.title)
-                    
                     Text("total confirmed: \(country.totalConfirmed ?? 0)").font(.title)
-                    
                     Text("total deaths: \(country.totalDeaths ?? 0)").font(.title)
-                    
                     Text("total recovered: \(country.totalRecovered ?? 0)").font(.title)
                 }.offset(x: 20, y: 30)
                 

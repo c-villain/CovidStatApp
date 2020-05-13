@@ -10,7 +10,6 @@ import Foundation
 
 public struct SummaryGlobal: Codable { 
 
-
     public var newConfirmed: Int?
     public var totalConfirmed: Int?
     public var newDeaths: Int?
