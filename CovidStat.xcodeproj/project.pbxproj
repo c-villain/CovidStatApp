@@ -75,7 +75,7 @@
 
 /* Begin PBXFileReference section */
 		5A2B429B2466DAAF00B41317 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBar.swift; path = CovidStat/Views/Controls/SearchBar.swift; sourceTree = SOURCE_ROOT; };
-		5A2B429D2466DAFA00B41317 /* SummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryView.swift; path = CovidStat/Views/SummaryView.swift; sourceTree = SOURCE_ROOT; };
+		5A2B429D2466DAFA00B41317 /* SummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryView.swift; path = Views/Tabs/SummaryView.swift; sourceTree = SOURCE_ROOT; };
 		5A2B42A42466DB6400B41317 /* CountryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountryRow.swift; path = CovidStat/Views/CountriesTab/CountryRow.swift; sourceTree = SOURCE_ROOT; };
 		5A2B42A52466DB6400B41317 /* CountriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountriesView.swift; path = CovidStat/Views/CountriesTab/CountriesView.swift; sourceTree = SOURCE_ROOT; };
 		5A2B42A62466DB6400B41317 /* CountryDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountryDetail.swift; path = CovidStat/Views/CountriesTab/CountryDetail.swift; sourceTree = SOURCE_ROOT; };
@@ -107,7 +107,7 @@
 		5A99552424660B490027BA61 /* Summary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 		5A99552524660B490027BA61 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		5AA9FADD24640948001E6E1A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AA9FAE0246440C6001E6E1A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutView.swift; path = CovidStat/Views/AboutView.swift; sourceTree = SOURCE_ROOT; };
+		5AA9FAE0246440C6001E6E1A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutView.swift; path = Views/Tabs/AboutView.swift; sourceTree = SOURCE_ROOT; };
 		5AA9FAE324644868001E6E1A /* SummaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryService.swift; sourceTree = "<group>"; };
 		5AA9FAE9246459B2001E6E1A /* TypesExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesExt.swift; sourceTree = "<group>"; };
 		5AA9FAEB24645C90001E6E1A /* SummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewModel.swift; sourceTree = "<group>"; };
@@ -170,7 +170,8 @@
 				5A2B42A62466DB6400B41317 /* CountryDetail.swift */,
 				5A2B42A42466DB6400B41317 /* CountryRow.swift */,
 			);
-			path = CountriesTab;
+			name = CountriesTab;
+			path = ../CountriesTab;
 			sourceTree = "<group>";
 		};
 		5A612920246C963E0001F751 /* PieChart */ = {
@@ -202,6 +203,16 @@
 			name = Model;
 			path = CovidStat/Views/Controls/PieChart/Model;
 			sourceTree = SOURCE_ROOT;
+		};
+		5A61293A246CB0A80001F751 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				5A2B429D2466DAFA00B41317 /* SummaryView.swift */,
+				5AA9FAE0246440C6001E6E1A /* AboutView.swift */,
+				5A2B42A32466DB1000B41317 /* CountriesTab */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
 		};
 		5A75938B24640018005E2255 = {
 			isa = PBXGroup;
@@ -271,11 +282,9 @@
 		5A7593C9246407DA005E2255 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5A2B42A32466DB1000B41317 /* CountriesTab */,
 				5A2B42982466D97100B41317 /* Controls */,
+				5A61293A246CB0A80001F751 /* Tabs */,
 				5AEDC1AF246408A300D55970 /* ContentView.swift */,
-				5A2B429D2466DAFA00B41317 /* SummaryView.swift */,
-				5AA9FAE0246440C6001E6E1A /* AboutView.swift */,
 			);
 			name = Views;
 			path = ../Views;
@@ -318,8 +327,8 @@
 			isa = PBXGroup;
 			children = (
 				5AA9FAE324644868001E6E1A /* SummaryService.swift */,
-				5AA9FAEF24648C14001E6E1A /* ServiceLocator.swift */,
 				5A2B42B8246B306D00B41317 /* CasesService.swift */,
+				5AA9FAEF24648C14001E6E1A /* ServiceLocator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

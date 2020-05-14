@@ -10,22 +10,21 @@ import Combine
 import Foundation
 import SwiftUI
 
-class PieChartViewModel: ObservableObject {
+final class PieChartViewModel: ObservableObject {
     
     @Published var pieChartData = PieChartData(data: [Double]())
     
-    func generateChartData(summary: SummaryGlobal?) -> Void {
+    func generateChartData(_ summaryGlobal: SummaryGlobal?) -> Void {
+        
+        guard summaryGlobal != nil else {return }
         // reset view
         pieChartData = PieChartData(data: [Double]())
-        
         var values: [Double] = []
         
-        guard summary != nil else {return }
-
-        values.append(Double(summary?.totalConfirmed ?? 0))
-        values.append(Double(summary?.totalRecovered ?? 0))
-        values.append(Double(summary?.totalDeaths ?? 0))
-
+        values.append(Double(summaryGlobal?.totalConfirmed ?? 0))
+        values.append(Double(summaryGlobal?.totalRecovered ?? 0))
+        values.append(Double(summaryGlobal?.totalDeaths ?? 0))
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.pieChartData = PieChartData(data: values)
         }

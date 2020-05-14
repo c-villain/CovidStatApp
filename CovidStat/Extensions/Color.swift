@@ -2,8 +2,8 @@
 //  Color.swift
 //  SwiftUI-PieChart
 //
-//  Created by Kent Winder on 3/17/20.
-//  Copyright © 2020 Nextzy. All rights reserved.
+//  Created by Alexander Kraev on 07.05.2020
+//  Copyright © 2020 Alexander Kraev. All rights reserved.
 //
 
 import SwiftUI

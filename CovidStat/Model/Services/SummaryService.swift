@@ -9,7 +9,6 @@
 import Foundation
 
 class SummaryService {
-    
     func loadCovidSummary(completion: @escaping (_ results: Result<Summary?, Error>) ->  Void) {
 
         SummaryOfTotalCasesAPI.getSummary(){
