@@ -11,7 +11,7 @@ import SwiftUICharts
 
 struct CountryDetail: View {
     
-    @ObservedObject var viewModel: CasesViewModel
+    @ObservedObject var casesViewModel: CasesViewModel
     
     @State var country: Country
     
@@ -32,15 +32,15 @@ struct CountryDetail: View {
                 
                 ScrollView(.vertical, showsIndicators: true){
                     VStack(spacing: 150){
-                        LineView(data: self.viewModel.totalCases.map{Double($0.confirmed               ?? 0)}, title: "Total confirmed", legend: "Confirmed cases stat since first recorded case").padding().offset(x: 0, y: 20).onAppear(){
-                            self.viewModel.clearCases()
-                            self.viewModel.loadAllCases(countrySlug: self.country.slug ?? "")}
+                        LineView(data: self.casesViewModel.totalCases.map{Double($0.confirmed               ?? 0)}, title: "Total confirmed", legend: "Confirmed cases stat since first recorded case").padding().offset(x: 0, y: 20).onAppear(){
+                            self.casesViewModel.clearCases()
+                            self.casesViewModel.loadAllCases(countrySlug: self.country.slug ?? "")}
                         
                         Spacer()
-                        LineView(data: self.viewModel.totalCases.map{Double($0.deaths               ?? 0)}, title: "Total death", legend: "Death cases stat since first recorded case").padding().offset(x: 0, y: 20)
+                        LineView(data: self.casesViewModel.totalCases.map{Double($0.deaths               ?? 0)}, title: "Total death", legend: "Death cases stat since first recorded case").padding().offset(x: 0, y: 20)
                         
                         Spacer()
-                        LineView(data: self.viewModel.totalCases.map{Double($0.recovered               ?? 0)}, title: "Total recovered", legend: "Recovered cases stat since first recorded case").padding().offset(x: 0, y: 20)
+                        LineView(data: self.casesViewModel.totalCases.map{Double($0.recovered               ?? 0)}, title: "Total recovered", legend: "Recovered cases stat since first recorded case").padding().offset(x: 0, y: 20)
                         Spacer()
                         Spacer()
                         Spacer()
@@ -48,8 +48,8 @@ struct CountryDetail: View {
                 }.offset(x: 0, y: 20)
                 .navigationBarItems(trailing:
                     Button(action: {
-                        self.viewModel.clearCases()
-                        self.viewModel.loadAllCases(countrySlug: self.country.slug ?? "")
+                        self.casesViewModel.clearCases()
+                        self.casesViewModel.loadAllCases(countrySlug: self.country.slug ?? "")
                     }) {
                         Image(systemName: "arrow.clockwise")
                     }
@@ -62,7 +62,7 @@ struct CountryDetail: View {
 
 struct CountryDetail_Previews: PreviewProvider {
     static var previews: some View {
-        CountryDetail(viewModel: CasesViewModel(casesService: CasesService() as CasesService), country: Country(country: "Belgium", countryCode: "BE", slug: "belgium", newConfirmed: 0, totalConfirmed: 52011, newDeaths: 0, totalDeaths: 8521, newRecovered: 0, totalRecovered: 13201, date: "2020-05-09T09:48:33Z"))
+        CountryDetail(casesViewModel: CasesViewModel(casesService: CasesService() as CasesService), country: Country(country: "Belgium", countryCode: "BE", slug: "belgium", newConfirmed: 0, totalConfirmed: 52011, newDeaths: 0, totalDeaths: 8521, newRecovered: 0, totalRecovered: 13201, date: "2020-05-09T09:48:33Z"))
     }
 }
 

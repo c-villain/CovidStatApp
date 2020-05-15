@@ -13,8 +13,6 @@ struct SummaryView: View {
     
     @ObservedObject var viewModel: SummaryViewModel
     
-    @ObservedObject var chartViewModel: PieChartViewModel
-    
     var body: some View {
         NavigationView {
             VStack{
@@ -27,13 +25,10 @@ struct SummaryView: View {
                 Spacer()
                 GeometryReader { geometry in
                     VStack {
-                        PieChart(pieChartData: self.chartViewModel.pieChartData)
+                            PieChart(pieChartData: self.viewModel.pieChartData)
                             .frame(width: geometry.size.width * 0.8,
                                    height: geometry.size.width * 0.8)
                             .padding(.top, 20)
-                    }
-                    .onAppear {
-                        self.chartViewModel.generateChartData(self.viewModel.summary?.global)
                     }
                 }
                 Spacer()
@@ -42,7 +37,6 @@ struct SummaryView: View {
             .navigationBarItems(trailing:
                 Button(action: {
                     self.viewModel.loadSummary()
-                    self.chartViewModel.generateChartData(self.viewModel.summary?.global)
                 }) {
                     Image(systemName: "arrow.clockwise")
                 }
@@ -50,10 +44,10 @@ struct SummaryView: View {
         } //NavigationView
     }
 }
-
-struct SummaryView_Previews: PreviewProvider {
-    static var previews: some View {
-        SummaryView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService), chartViewModel: PieChartViewModel()
-        )
-    }
-}
+//
+//struct SummaryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SummaryView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService), chartViewModel: PieChartViewModel()
+//        )
+//    }
+//}

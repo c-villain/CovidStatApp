@@ -10,7 +10,7 @@ import Foundation
 
 class SummaryService {
     func loadCovidSummary(completion: @escaping (_ results: Result<Summary?, Error>) ->  Void) {
-
+        
         SummaryOfTotalCasesAPI.getSummary(){
             response, error in
             guard let results = response, error == nil else {
@@ -19,7 +19,7 @@ class SummaryService {
                 }
                 return
             }
-            completion(.success(results))
+            completion(.success(results))   
         }
     }
 }

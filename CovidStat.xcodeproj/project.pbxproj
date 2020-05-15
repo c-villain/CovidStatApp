@@ -18,7 +18,6 @@
 		5A612924246C966B0001F751 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612922246C966B0001F751 /* Color.swift */; };
 		5A61292F246C96E60001F751 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A61292D246C96E60001F751 /* PieChart.swift */; };
 		5A612930246C96E60001F751 /* PieChartSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A61292E246C96E60001F751 /* PieChartSlide.swift */; };
-		5A612932246C978F0001F751 /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612931246C978F0001F751 /* PieChartViewModel.swift */; };
 		5A612937246C985D0001F751 /* SlideData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612934246C985D0001F751 /* SlideData.swift */; };
 		5A612938246C985D0001F751 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612935246C985D0001F751 /* DataItem.swift */; };
 		5A612939246C985D0001F751 /* PieChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A612936246C985D0001F751 /* PieChartData.swift */; };
@@ -83,7 +82,6 @@
 		5A612922246C966B0001F751 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		5A61292D246C96E60001F751 /* PieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		5A61292E246C96E60001F751 /* PieChartSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSlide.swift; sourceTree = "<group>"; };
-		5A612931246C978F0001F751 /* PieChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewModel.swift; sourceTree = "<group>"; };
 		5A612934246C985D0001F751 /* SlideData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideData.swift; sourceTree = "<group>"; };
 		5A612935246C985D0001F751 /* DataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		5A612936246C985D0001F751 /* PieChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartData.swift; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 			children = (
 				5AA9FAEB24645C90001E6E1A /* SummaryViewModel.swift */,
 				5A2B42BA246B42DE00B41317 /* CasesViewModel.swift */,
-				5A612931246C978F0001F751 /* PieChartViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -552,7 +549,6 @@
 				5AAA2B6824659CE500EDE0DD /* Extensions.swift in Sources */,
 				5AAA2B6224659CE500EDE0DD /* CodableHelper.swift in Sources */,
 				5AAA2B6B24659CE500EDE0DD /* Models.swift in Sources */,
-				5A612932246C978F0001F751 /* PieChartViewModel.swift in Sources */,
 				5A612924246C966B0001F751 /* Color.swift in Sources */,
 				5A75939A24640018005E2255 /* SceneDelegate.swift in Sources */,
 				5A612930246C96E60001F751 /* PieChartSlide.swift in Sources */,

@@ -10,14 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var locator : ServiceLocator
-    @State private var selection = 1
+    @EnvironmentObject var viewModel: SummaryViewModel
+    @EnvironmentObject var casesViewModel: CasesViewModel
+    
+    @State private var selection = 0
     
     var body: some View {
         
         TabView(selection: $selection){
             
-            SummaryView(viewModel: SummaryViewModel(summaryService: locator.getService()), chartViewModel: PieChartViewModel())
+            SummaryView(viewModel: self.viewModel)
                 .tag(0)
                 .tabItem{
                     VStack{
@@ -26,7 +28,7 @@ struct ContentView: View {
                     }
             }
             
-            CountriesView(viewModel: SummaryViewModel(summaryService: locator.getService()))
+            CountriesView(viewModel: self.viewModel, casesViewModel: casesViewModel)
                 .tag(1)
                 .tabItem{
                     VStack{

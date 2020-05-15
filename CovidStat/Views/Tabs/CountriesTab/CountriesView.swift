@@ -13,6 +13,7 @@ import SwiftUIRefresh
 struct CountriesView: View {
     
     @ObservedObject var viewModel: SummaryViewModel
+    @ObservedObject var casesViewModel: CasesViewModel
     @EnvironmentObject var locator: ServiceLocator
     
     @State private var searchCountry : String = ""
@@ -28,7 +29,7 @@ struct CountriesView: View {
                         ($0.country?.lowercased().starts(with: searchCountry.lowercased()) ?? true)
                 }, id: \.country){
                     country in NavigationLink(
-                        destination: CountryDetail(viewModel: CasesViewModel(casesService: self.locator.getService()),
+                        destination: CountryDetail(casesViewModel: self.casesViewModel,
                                                    country: country)){
                                                     CountryRow(country: country)
                     }
@@ -72,6 +73,6 @@ struct CountriesView: View {
 
 struct CountriesView_Previews: PreviewProvider {
     static var previews: some View {
-        CountriesView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService))
+        CountriesView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService), casesViewModel: CasesViewModel(casesService: CasesService() as CasesService))
     }
 }
