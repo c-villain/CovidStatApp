@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var locator : ServiceLocator
-    @State private var selection = 0
+    @State private var selection = 1
     
     var body: some View {
         

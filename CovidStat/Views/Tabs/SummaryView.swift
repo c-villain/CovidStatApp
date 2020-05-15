@@ -36,7 +36,6 @@ struct SummaryView: View {
                         self.chartViewModel.generateChartData(self.viewModel.summary?.global)
                     }
                 }
-
                 Spacer()
             }
             .navigationBarTitle("COVID-19 Summary")
