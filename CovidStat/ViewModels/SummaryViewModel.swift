@@ -55,9 +55,9 @@ final class SummaryViewModel : ObservableObject
         pieChartData = PieChartData(data: [Double]())
         var values: [Double] = []
 
-        values.append(Double(summaryGlobal?.totalConfirmed ?? 0))
-        values.append(Double(summaryGlobal?.totalRecovered ?? 0))
-        values.append(Double(summaryGlobal?.totalDeaths ?? 0))
+        values.append(Double(summaryGlobal!.totalConfirmed! - summaryGlobal!.totalRecovered! - summaryGlobal!.totalDeaths! ))
+        values.append(Double(summaryGlobal!.totalRecovered! ))
+        values.append(Double(summaryGlobal!.totalDeaths! ))
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.pieChartData = PieChartData(data: values)
