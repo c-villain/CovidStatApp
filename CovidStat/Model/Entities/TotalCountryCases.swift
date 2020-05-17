@@ -18,6 +18,7 @@ public struct TotalCountryCases: Codable {
     public var recovered: Int?
     public var active: Int?
     public var date: String?
+    
 
     public init(country: String?, countryCode: String?, confirmed: Int?, deaths: Int?, recovered: Int?, active: Int?, date: String?) {
         self.country = country

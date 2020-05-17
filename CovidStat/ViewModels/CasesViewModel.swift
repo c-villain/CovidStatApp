@@ -13,6 +13,8 @@ final class CasesViewModel : ObservableObject
 {
     @Published private(set) var totalCases: [TotalCountryCases] = [TotalCountryCases]()
     
+    @Published private(set) var newCases: [Double] = [Double]()
+    
     private(set) var allCases: [TotalCountryCases] = [TotalCountryCases]()
     
     private let casesService: CasesService
@@ -21,9 +23,29 @@ final class CasesViewModel : ObservableObject
         self.casesService = casesService
     }
     
+    func countNewCases() -> Void{
+        self.newCases.removeAll()
+        guard self.totalCases.count > 1 else { return }
+        
+        var outputArray = [Double]()
+
+        for index in (1 ..< self.totalCases.count) {
+            guard self.totalCases.count > index,
+            self.totalCases[index].confirmed != nil,
+            self.totalCases[index - 1].confirmed != nil else {
+                continue
+            }
+            outputArray.append(Double(self.totalCases[index].confirmed! - self.totalCases[index - 1].confirmed!))
+        }
+        DispatchQueue.main.async{
+        self.newCases.append(contentsOf: outputArray)
+        }
+    }
+    
     func clearCases() -> Void{
         self.totalCases.removeAll()
         self.allCases.removeAll()
+        self.newCases.removeAll()
     }
     
     func loadAllCases(countrySlug: String) -> Void{
@@ -33,6 +55,7 @@ final class CasesViewModel : ObservableObject
                 case .success(let allCases):
                     self.allCases.append(contentsOf: allCases)
                     self.totalCases.append(contentsOf: self.allCases)
+                    self.countNewCases()
                 case .failure(let error):
                     print("Faied to load summary: " + error.localizedDescription)
                 }
@@ -43,6 +66,7 @@ final class CasesViewModel : ObservableObject
     func notFilterCases() -> Void{
         guard self.allCases.count != 0 else {return}
         self.totalCases = self.allCases
+        self.countNewCases()
     }
     
     
@@ -57,6 +81,7 @@ final class CasesViewModel : ObservableObject
         self.totalCases = self.allCases.filter{
             ($0.date ?? "") > daysString
         }
+        self.countNewCases()
     }
     
     
