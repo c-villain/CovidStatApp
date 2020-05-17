@@ -68,6 +68,7 @@ struct CountriesView: View {
                         }}
             )
         } //NavigationView
+        .navigationViewStyle(StackNavigationViewStyle())
     } //some View
 } //View
 
