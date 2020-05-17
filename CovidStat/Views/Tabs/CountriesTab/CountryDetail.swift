@@ -14,6 +14,9 @@ struct CountryDetail: View {
     @ObservedObject var casesViewModel: CasesViewModel
     
     @State var country: Country
+    @State var totalConfirmedText: String = "Confirmed cases stat since first recorded case"
+    @State var totalDeathText: String = "Death cases stat since first recorded case"
+    @State var totalRecoveredText:String = "Recovered cases stat since first recorded case"
     
     var body: some View {
         VStack{
@@ -32,27 +35,79 @@ struct CountryDetail: View {
                 
                 ScrollView(.vertical, showsIndicators: true){
                     VStack(spacing: 150){
-                        LineView(data: self.casesViewModel.totalCases.map{Double($0.confirmed               ?? 0)}, title: "Total confirmed", legend: "Confirmed cases stat since first recorded case").padding().offset(x: 0, y: 20).onAppear(){
+                        LineView(data: self.casesViewModel.totalCases.map{Double($0.confirmed  ?? 0)}, title: "Total confirmed", legend: self.totalConfirmedText).padding().offset(x: 0, y: 20).onAppear(){
                             self.casesViewModel.clearCases()
                             self.casesViewModel.loadAllCases(countrySlug: self.country.slug ?? "")}
                         
                         Spacer()
-                        LineView(data: self.casesViewModel.totalCases.map{Double($0.deaths               ?? 0)}, title: "Total death", legend: "Death cases stat since first recorded case").padding().offset(x: 0, y: 20)
+                        LineView(data: self.casesViewModel.totalCases.map{Double($0.deaths   ?? 0)}, title: "Total death", legend: self.totalDeathText).padding().offset(x: 0, y: 20)
                         
                         Spacer()
-                        LineView(data: self.casesViewModel.totalCases.map{Double($0.recovered               ?? 0)}, title: "Total recovered", legend: "Recovered cases stat since first recorded case").padding().offset(x: 0, y: 20)
+                        LineView(data: self.casesViewModel.totalCases.map{Double($0.recovered ?? 0)}, title: "Total recovered", legend: self.totalRecoveredText).padding().offset(x: 0, y: 20)
                         Spacer()
                         Spacer()
                         Spacer()
                     }
                 }.offset(x: 0, y: 20)
-                .navigationBarItems(trailing:
-                    Button(action: {
-                        self.casesViewModel.clearCases()
-                        self.casesViewModel.loadAllCases(countrySlug: self.country.slug ?? "")
-                    }) {
-                        Image(systemName: "arrow.clockwise")
-                    }
+                    .navigationBarItems(trailing:
+                        HStack {
+                            Group{
+                                Button(action: {
+                                    
+                                    self.totalConfirmedText = "Confirmed cases stat since first recorded case"
+                                    self.totalDeathText = "Death cases stat since first recorded case"
+                                    self.totalRecoveredText = "Recovered cases stat since first recorded case"
+                                    self.casesViewModel.notFilterCases()
+                                }) {
+                                    Image(systemName: "gobackward")
+                                }
+                                Spacer()
+                                Spacer()
+                                Spacer()
+                            }
+                            
+                            Group{
+                                Button(action: {
+                                    self.totalConfirmedText = "Confirmed cases stat for last 15 days"
+                                    self.totalDeathText = "Death cases stat for last 15 days"
+                                    self.totalRecoveredText = "Recovered cases stat for last 15 days"
+                                    self.casesViewModel.filterCasesForDays(daysCount: 15)
+                                }) {
+                                    Image(systemName: "gobackward.15")
+                                }
+                                
+                                Spacer()
+                                Spacer()
+                                Spacer()
+                            }
+                            Group{
+                                Button(action: {
+                                    self.totalConfirmedText = "Confirmed cases stat for last 10 days"
+                                    self.totalDeathText = "Death cases stat for last 10 days"
+                                    self.totalRecoveredText = "Recovered cases stat for last 10 days"
+                                    
+                                    self.casesViewModel.filterCasesForDays(daysCount: 10)
+                                    
+                                }) {
+                                    Image(systemName: "gobackward.10")
+                                }
+                                Spacer()
+                                Spacer()
+                                Spacer()
+                            }
+                            
+                            Button(action: {
+                                self.totalConfirmedText = "Confirmed cases stat since first recorded case"
+                                self.totalDeathText = "Death cases stat since first recorded case"
+                                self.totalRecoveredText = "Recovered cases stat since first recorded case"
+                                
+                                self.casesViewModel.clearCases()
+                                self.casesViewModel.loadAllCases(countrySlug: self.country.slug ?? "")
+                            }) {
+                                Image(systemName: "arrow.clockwise")
+                            }
+                            
+                        }
                 )
             }
         }
