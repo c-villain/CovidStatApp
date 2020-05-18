@@ -7,7 +7,7 @@
 
 ## About
 
-CovidStats provides data on COVID-19 based on [COVID19Api](https://covid19api.com).
+CovidStats provides data on COVID-19 stat based on [COVID19Api](https://covid19api.com).
 Data is sourced from [Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19).
 
 ## Requirements
