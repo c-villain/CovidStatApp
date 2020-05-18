@@ -6,8 +6,6 @@ Access data on COVID-19 an easiest way.
 <img src="https://github.com/c-villain/CovidStatApp/blob/master/.assets/screenshots.png" alt="CovidStats Screenshots" height="320">
 </p>
 
-[![Download on the AppStore](https://linkmaker.itunes.apple.com/en-gb/badge-lrg.svg?releaseDate=2017-07-19&kind=iossoftware&bubble=ios_apps)](https://apps.apple.com/app/covidstats/id1513899389)
-
 ## About
 
 CovidStats provides data on COVID-19 stat based on [COVID19Api](https://covid19api.com).
