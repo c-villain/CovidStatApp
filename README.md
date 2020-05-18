@@ -12,8 +12,8 @@ Data is sourced from [Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVI
 
 ## Requirements
 
-Xcode 11
-iOS 13 or later
+- Xcode 11
+- iOS 13 or later
 
 ## Privacy Policy
 
