@@ -119,7 +119,7 @@
 		5A612934246C985D0001F751 /* SlideData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideData.swift; sourceTree = "<group>"; };
 		5A612935246C985D0001F751 /* DataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		5A612936246C985D0001F751 /* PieChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartData.swift; sourceTree = "<group>"; };
-		5A75939424640018005E2255 /* CovidStat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidStat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A75939424640018005E2255 /* CovidStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A75939724640018005E2255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A75939924640018005E2255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5A75939D24640019005E2255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 		5A75939524640018005E2255 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A75939424640018005E2255 /* CovidStat.app */,
+				5A75939424640018005E2255 /* CovidStats.app */,
 				5A7593AA24640019005E2255 /* CovidStatTests.xctest */,
 				5A7593B524640019005E2255 /* CovidStatUITests.xctest */,
 			);
@@ -484,7 +484,7 @@
 				5A2B42B2246AC95600B41317 /* SwiftUICharts */,
 			);
 			productName = CovidStat;
-			productReference = 5A75939424640018005E2255 /* CovidStat.app */;
+			productReference = 5A75939424640018005E2255 /* CovidStats.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5A7593A924640019005E2255 /* CovidStatTests */ = {
@@ -830,8 +830,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lexkraev.CovidStat;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexkraev.CovidStats;
+				PRODUCT_NAME = CovidStats;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -849,8 +849,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lexkraev.CovidStat;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexkraev.CovidStats;
+				PRODUCT_NAME = CovidStats;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
