@@ -10,12 +10,16 @@
 CovidStats provides data on COVID-19 based on [COVID19Api](https://covid19api.com).
 Data is sourced from [Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19).
 
+## Requirements
+
+Xcode 11
+iOS 13 or later
+
 ## Privacy Policy
 
 See [PrivacyPolicy.txt](https://raw.githubusercontent.com/c-villain/CovidStatApp/master/PrivacyPolicy.txt)
 
 ## Special thanks
 
-This app uses [SwiftUICharts](https://github.com/AppPear/ChartView) from Andras Samu and [SwiftUIRefresh](https://github.com/siteline/SwiftUIRefresh)
-from Loïs Di Qual
+This app uses [SwiftUICharts](https://github.com/AppPear/ChartView) from Andras Samu and [SwiftUIRefresh](https://github.com/siteline/SwiftUIRefresh) from Loïs Di Qual.
 
