@@ -1,4 +1,4 @@
-# CovidStats
+# WorldHealthStats
 
 Access Johns Hopkins CSSE data on COVID-19 an easiest way.
 
