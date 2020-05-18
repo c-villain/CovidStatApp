@@ -21,44 +21,59 @@ struct AboutView: View {
     let email = "lexkraev@gmail.com"
     
     var body: some View {
-        VStack(alignment: .leading){
-            Group{
-                Spacer()
-                Text("About").font(.largeTitle).bold()
-                Spacer()
+        VStack(alignment: .center){
+            Image("AboutIcon")
+            .resizable()
+            .scaledToFit()
+            
+            .frame(width: 120, height: 120, alignment: .center)
+                .offset(x: 0, y: 30)
+        
+            VStack(alignment: .leading){
                 
-                Text("This is an open source project")
-                
-                
-                linkButton(link: "https://github.com/c-villain/CovidStatApp", buttonText: "https://github.com/c-villain/CovidStatApp").font(.headline)
-                Spacer()
+                Group{
+                    Spacer()
+                    Spacer()
+                    Text("About").font(.largeTitle).bold()
+                    Spacer()
+                }
+                Group{
+                    Text("This is an open source project")
+                    
+                    
+                    linkButton(link: "https://github.com/c-villain/CovidStatApp", buttonText: "https://github.com/c-villain/CovidStatApp").font(.headline)
+                    Spacer()
+                    HStack{
+                        Text("based on ")
+                        linkButton(link: "https://covid19api.com", buttonText: "https://covid19api.com").font(.headline)
+                    }
+                    Spacer()
+                    Text("@Alexander Kraev, 2020")
+                    
+                }
+                Group{
+                    Spacer()
+                    Spacer()
+                    Text("Contact").font(.largeTitle).bold()
+                    Spacer()
+                }
+                Group{
+                    Text("If you have any questions or suggestions for improvement, please contact me:")
+                    linkButton(link: "t.me/cvillain", buttonText: "t.me/cvillain").font(.headline)
+                    Spacer()
+                }
                 HStack{
-                    Text("based on ")
-                    linkButton(link: "https://covid19api.com", buttonText: "https://covid19api.com").font(.headline)
+                    Text("or email me:")
+                    linkButton(link: "mailto:\(email)", buttonText: "lexkraev@gmail.com").font(.headline)
                 }
                 Spacer()
-                Text("@Alexander Kraev, 2020")
-                
+                Spacer()
+                Spacer()
             }
-            Group{
-                Spacer()
-                Spacer()
-                Spacer()
-                Text("Contact").font(.largeTitle).bold()
-                Spacer()
-                Text("If you have any questions or suggestions for improvement, please contact me:")
-                linkButton(link: "t.me/cvillain", buttonText: "t.me/cvillain").font(.headline)
-            }
-            HStack{
-                Text("or email me:")
-                linkButton(link: "mailto:\(email)", buttonText: "lexkraev@gmail.com").font(.headline)
-            }
-            Spacer()
-            Spacer()
-            Spacer()
         }
     }
 }
+
 
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
