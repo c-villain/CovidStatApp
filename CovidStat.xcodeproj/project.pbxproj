@@ -824,8 +824,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CovidStat/SupportingFiles/Preview Content\"";
+				DEVELOPMENT_TEAM = TP33793R45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CovidStat/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -843,8 +845,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CovidStat/SupportingFiles/Preview Content\"";
+				DEVELOPMENT_TEAM = TP33793R45;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CovidStat/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

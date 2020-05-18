@@ -1,0 +1,6 @@
+CovidStats provides data on COVID19 based on https://covid19api.com.
+Data is sourced from Johns Hopkins CSSE: https://github.com/CSSEGISandData/COVID-19
+
+Contact
+
+If you have questions regarding our privacy policy, please contact us: lexkraev@gmail.com
