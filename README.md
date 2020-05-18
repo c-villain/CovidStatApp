@@ -1,4 +1,7 @@
 # CovidStats
+
+Access data on COVID-19 an easiest way.
+
 <p align="center">
 <img src="https://github.com/c-villain/CovidStatApp/blob/master/.assets/screenshots.png" alt="CovidStats Screenshots" height="320">
 </p>
