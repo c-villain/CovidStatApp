@@ -1,6 +1,6 @@
 # CovidStats
 <p align="center">
-<img src="" alt="CovidStats Screenshots" height="320">
+<img src="https://github.com/c-villain/CovidStatApp/blob/master/.assets/screenshots.png" alt="CovidStats Screenshots" height="320">
 </p>
 
 [![Download on the AppStore](https://linkmaker.itunes.apple.com/en-gb/badge-lrg.svg?releaseDate=2017-07-19&kind=iossoftware&bubble=ios_apps)](https://apps.apple.com/app/covidstats/id1513899389)
