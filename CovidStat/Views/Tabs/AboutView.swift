@@ -18,7 +18,7 @@ struct AboutView: View {
             Text(buttonText)
         })
     }
-    let email = "lexkraev@gmail.com"
+    
     
     var body: some View {
         VStack(alignment: .center){
@@ -39,14 +39,19 @@ struct AboutView: View {
                 }
                 Group{
                     Text("This is an open source project")
-                    
-                    
-                    linkButton(link: "https://github.com/c-villain/CovidStatApp", buttonText: "https://github.com/c-villain/CovidStatApp").font(.headline)
+                    linkButton(link: Constants.AboutConstants.github, buttonText: Constants.AboutConstants.github).font(.headline)
                     Spacer()
                     HStack{
                         Text("based on ")
-                        linkButton(link: "https://covid19api.com", buttonText: "https://covid19api.com").font(.headline)
+                        linkButton(link: Constants.AboutConstants.api, buttonText: Constants.AboutConstants.api).font(.headline)
                     }
+                    Spacer()
+                    Group{
+                        Text("Data is sourced from Johns Hopkins CSSE ")
+                        linkButton(link: Constants.AboutConstants.JHApi, buttonText: Constants.AboutConstants.JHApi).font(.headline)
+                    }
+                    Spacer()
+                    linkButton(link: Constants.AboutConstants.privacyPolicy, buttonText: "Read privacy policy").font(.headline)
                     Spacer()
                     Text("@Alexander Kraev, 2020")
                     
@@ -59,12 +64,12 @@ struct AboutView: View {
                 }
                 Group{
                     Text("If you have any questions or suggestions for improvement, please contact me:")
-                    linkButton(link: "t.me/cvillain", buttonText: "t.me/cvillain").font(.headline)
+                    linkButton(link: Constants.AboutConstants.tg, buttonText: Constants.AboutConstants.tg).font(.headline)
                     Spacer()
                 }
                 HStack{
                     Text("or email me:")
-                    linkButton(link: "mailto:\(email)", buttonText: "lexkraev@gmail.com").font(.headline)
+                    linkButton(link: "mailto:\(Constants.AboutConstants.email)", buttonText: Constants.AboutConstants.email).font(.headline)
                 }
                 Spacer()
                 Spacer()
