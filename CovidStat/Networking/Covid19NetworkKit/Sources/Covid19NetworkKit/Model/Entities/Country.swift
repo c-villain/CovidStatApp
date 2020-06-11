@@ -10,7 +10,6 @@ import Foundation
 
 public struct Country: Codable { 
 
-
     public var country: String?
     public var countryCode: String?
     public var slug: String?

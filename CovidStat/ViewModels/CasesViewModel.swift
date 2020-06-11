@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import Covid19NetworkKit
 
 final class CasesViewModel : ObservableObject
 {

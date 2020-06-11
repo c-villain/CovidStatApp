@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 import SwiftUIRefresh
+import Covid19NetworkKit
 
 struct CountriesView: View {
     
@@ -68,6 +69,7 @@ struct CountriesView: View {
                         }}
             )
         } //NavigationView
+        .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)})
         .navigationViewStyle(StackNavigationViewStyle())
     } //some View
 } //View

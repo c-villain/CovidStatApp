@@ -8,21 +8,33 @@
 
 import Foundation
 import SwiftUI
+import Covid19NetworkKit
 
 final class SummaryViewModel : ObservableObject
 {
+    // MARK: - Access to Model
+    
     @Published private(set) var summary: Summary?
+    
+    // MARK: - Access to PieChart
+    
     @Published var pieChartData = PieChartData(data: [Double]())
     
+    // MARK: - Access to service of loading summary
+    
     private let summaryService: SummaryService
+    
+    // MARK: - Initializer
     
     init(summaryService: SummaryService) {
         self.summaryService = summaryService
         self.loadSummary()
     }
     
+    // MARK: - Sorting Functions
+    
     func sortCountriesInAlphabeticalOrder() -> Void{
-        guard self.summary != nil || self.summary?.countries != nil else {return}
+        guard self.summary != nil || self.summary?.countries    != nil else {return}
         
         let sorted = self.summary?.countries?.sorted{
             $0.country! < $1.country!}
@@ -48,6 +60,9 @@ final class SummaryViewModel : ObservableObject
         self.summary?.countries = sorted
     }
     
+    
+    // MARK: - Reload pie chart
+    
     func generateChartData(_ summaryGlobal: SummaryGlobal?) -> Void {
 
         guard summaryGlobal != nil else {return }
@@ -63,6 +78,8 @@ final class SummaryViewModel : ObservableObject
             self.pieChartData = PieChartData(data: values)
         }
     }
+    
+    // MARK: - Load function
     
     func loadSummary() -> Void{
         self.summaryService.loadCovidSummary() { result in

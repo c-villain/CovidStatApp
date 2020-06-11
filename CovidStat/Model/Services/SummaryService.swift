@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Covid19NetworkKit
 
 class SummaryService {
     func loadCovidSummary(completion: @escaping (_ results: Result<Summary?, Error>) ->  Void) {

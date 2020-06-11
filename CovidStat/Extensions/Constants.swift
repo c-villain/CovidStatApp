@@ -25,6 +25,7 @@ struct Constants {
         static let recoveredIn10DaysText = "Recovered cases stat for last 10 days"
         static let newCasesIn10DaysText = "New cases per day stat for last 10 days"
     }
+    
     struct AboutConstants{
         static let github = "https://github.com/c-villain/CovidStatApp"
         static let api = "https://covid19api.com"

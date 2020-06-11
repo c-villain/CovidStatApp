@@ -8,6 +8,7 @@
 
 import SwiftUI
 import SwiftUICharts
+import Covid19NetworkKit
 
 struct CountryDetail: View {
     
@@ -37,6 +38,11 @@ struct CountryDetail: View {
                 ScrollView(.vertical, showsIndicators: true){
                     VStack(spacing: 150){
                         Group{
+                            LineView(data: self.casesViewModel.newCases, title: "New cases dynamic", legend: self.newCasesDynamicText).padding().offset(x: 0, y: 0).onAppear(){
+                                self.casesViewModel.countNewCases()
+                            }
+                            Spacer()
+                            
                             LineView(data: self.casesViewModel.totalCases.map{Double($0.confirmed  ?? 0)}, title: "Total confirmed", legend: self.totalConfirmedText).padding().offset(x: 0, y: 20).onAppear(){
                                 self.casesViewModel.clearCases()
                                 self.casesViewModel.loadAllCases(countrySlug: self.country.slug ?? "")
@@ -47,10 +53,6 @@ struct CountryDetail: View {
                             
                             Spacer()
                             LineView(data: self.casesViewModel.totalCases.map{Double($0.recovered ?? 0)}, title: "Total recovered", legend: self.totalRecoveredText).padding().offset(x: 0, y: 20)
-                            Spacer()
-                        }
-                        LineView(data: self.casesViewModel.newCases, title: "New cases dynamic", legend: self.newCasesDynamicText).padding().offset(x: 0, y: 20).onAppear(){
-                            self.casesViewModel.countNewCases()
                         }
                         
                         Spacer()
@@ -58,7 +60,7 @@ struct CountryDetail: View {
                         Spacer()
                         
                     }
-                }.offset(x: 0, y: 20)
+                }.offset(x: 0, y: 10)
                     .navigationBarItems(trailing:
                         HStack {
                             Group{

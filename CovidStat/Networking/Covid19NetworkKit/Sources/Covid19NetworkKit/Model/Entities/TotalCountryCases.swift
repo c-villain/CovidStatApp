@@ -8,9 +8,8 @@
 import Foundation
 
 
-public struct TotalCountryCases: Codable { 
-
-
+public struct TotalCountryCases: Codable {
+    
     public var country: String?
     public var countryCode: String?
     public var confirmed: Int?

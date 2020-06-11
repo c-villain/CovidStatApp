@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Covid19NetworkKit
 
 extension Summary: Identifiable {
     public var id: String {
