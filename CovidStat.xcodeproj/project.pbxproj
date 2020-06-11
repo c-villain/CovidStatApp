@@ -324,15 +324,6 @@
 			path = ../Views;
 			sourceTree = "<group>";
 		};
-		5A7593CA246407E8005E2255 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5AAA2B702465ED7500EDE0DD /* Entities */,
-				5AA9FAE224644843001E6E1A /* Services */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		5A7593CB246407EE005E2255 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,11 +336,11 @@
 		5A7593CC2464081A005E2255 /* CovidStat */ = {
 			isa = PBXGroup;
 			children = (
+				5AA9FAE224644843001E6E1A /* Services */,
 				5AAA2B712466098800EDE0DD /* Extensions */,
 				5AAA2B4D24659CE500EDE0DD /* Networking */,
 				5A7593C9246407DA005E2255 /* Views */,
 				5A7593CB246407EE005E2255 /* ViewModels */,
-				5A7593CA246407E8005E2255 /* Model */,
 				5A7593C72464067E005E2255 /* App */,
 				5A75939624640018005E2255 /* SupportingFiles */,
 			);
@@ -390,13 +381,6 @@
 				5A9ADD8F2492517D00D4801E /* Covid19NetworkKit */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		5AAA2B702465ED7500EDE0DD /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		5AAA2B712466098800EDE0DD /* Extensions */ = {
