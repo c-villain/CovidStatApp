@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: covid stat
+  description: CORONAVIRUS COVID19 API
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: lexkraev@gmail.com
+  version: 1.0.0
+externalDocs:
+  description: API Root
+  url: https://api.covid19api.com
+servers:
+- url: https://api.covid19api.com
+  description: SwaggerHub API Auto Mocking
+- url: https://virtserver.swaggerhub.com/c-villain/covid/1.0.0
+  description: covid api get stats
+tags:
+- name: covid stat
+  description: CORONAVIRUS COVID19 API
+paths:
+  /summary:
+    get:
+      tags:
+      - summary of total cases
+      summary: A summary of new and total cases per country updated daily.
+      operationId: getSummary
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Summary'
+  /total/country/{country}:
+    get:
+      tags:
+      - All cases country
+      summary: Returns all cases by case type for a country
+      operationId: getTotalCountryCases
+      parameters:
+      - name: country
+        in: path
+        description: country slug
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TotalCases'
+components:
+  schemas:
+    Summary:
+      type: object
+      properties:
+        Global:
+          $ref: '#/components/schemas/Summary_Global'
+        Countries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        Date:
+          type: string
+    Country:
+      type: object
+      properties:
+        Country:
+          type: string
+        CountryCode:
+          type: string
+        Slug:
+          type: string
+        NewConfirmed:
+          type: integer
+        TotalConfirmed:
+          type: integer
+        NewDeaths:
+          type: integer
+        TotalDeaths:
+          type: integer
+        NewRecovered:
+          type: integer
+        TotalRecovered:
+          type: integer
+        Date:
+          type: string
+    TotalCases:
+      type: array
+      items:
+        $ref: '#/components/schemas/TotalCountryCases'
+    TotalCountryCases:
+      type: object
+      properties:
+        Country:
+          type: string
+        CountryCode:
+          type: string
+        Slug:
+          type: string
+        NewConfirmed:
+          type: integer
+        TotalConfirmed:
+          type: integer
+        NewDeaths:
+          type: integer
+        TotalDeaths:
+          type: integer
+        NewRecovered:
+          type: integer
+        TotalRecovered:
+          type: integer
+        Date:
+          type: string
+    Summary_Global:
+      type: object
+      properties:
+        NewConfirmed:
+          type: integer
+        TotalConfirmed:
+          type: integer
+        NewDeaths:
+          type: integer
+        TotalDeaths:
+          type: integer
+        NewRecovered:
+          type: integer
+        TotalRecovered:
+          type: integer
