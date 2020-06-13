@@ -20,6 +20,10 @@ Based on SwiftUI & Combine with mvvm clean architecture and a custom implementat
 - Xcode 11
 - iOS 13 or later
 
+## Platforms
+
+Currently runs on iPhone and iPad.
+
 ## Privacy Policy
 
 See [PrivacyPolicy.txt](https://raw.githubusercontent.com/c-villain/CovidStatApp/master/PrivacyPolicy.txt)
