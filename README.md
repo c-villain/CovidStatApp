@@ -11,6 +11,10 @@ Access Johns Hopkins CSSE data on COVID-19 an easiest way.
 CovidStats provides data on COVID-19 stat based on [COVID19Api](https://covid19api.com).
 Data is sourced from [Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19).
 
+## Architecture
+
+Based on SwiftUI & Combine with mvvm clean architecture and a custom implementation of the Flux part of Redux.
+
 ## Requirements
 
 - Xcode 11
