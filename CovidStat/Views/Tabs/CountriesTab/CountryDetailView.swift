@@ -1,5 +1,5 @@
 //
-//  CountryDetail.swift
+//  CountryDetailView.swift
 //  CovidStat
 //
 //  Created by Alexander Kraev on 09.05.2020.
@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUICharts
 import Covid19NetworkKit
 
-struct CountryDetail: View {
+struct CountryDetailView: View {
     
     @ObservedObject var casesViewModel: CasesViewModel
     
@@ -131,7 +131,7 @@ struct CountryDetail: View {
 
 struct CountryDetail_Previews: PreviewProvider {
     static var previews: some View {
-        CountryDetail(casesViewModel: CasesViewModel(casesService: CasesService() as CasesService), country: Country(country: "Belgium", countryCode: "BE", slug: "belgium", newConfirmed: 0, totalConfirmed: 52011, newDeaths: 0, totalDeaths: 8521, newRecovered: 0, totalRecovered: 13201, date: "2020-05-09T09:48:33Z"))
+        CountryDetailView(casesViewModel: CasesViewModel(casesService: CasesService() as CasesService), country: Country(country: "Belgium", countryCode: "BE", slug: "belgium", newConfirmed: 0, totalConfirmed: 52011, newDeaths: 0, totalDeaths: 8521, newRecovered: 0, totalRecovered: 13201, date: "2020-05-09T09:48:33Z"))
     }
 }
 

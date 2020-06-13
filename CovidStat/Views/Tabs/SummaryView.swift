@@ -9,26 +9,29 @@
 import SwiftUI
 import SwiftUIRefresh
 import SwiftUICharts
+import Covid19NetworkKit
 
 struct SummaryView: View {
     
     @ObservedObject var viewModel: SummaryViewModel
+    @ObservedObject var summaryStore: SummaryStore<Summary, SummaryStoreActions>
+    
     var body: some View {
         NavigationView{
             VStack{
                 Text("COVID-19 Summary").font(.largeTitle).bold()
                 Spacer()
-                Text("on: \(self.viewModel.summary?.formatedDate ?? "")").font(.title)
+                Text("on: \(summaryStore.state?.formatedDate ?? "")").font(.title)
                 
                 Group{
-                    Text("Total confirmed: \(self.viewModel.summary?.global?.totalConfirmed ?? 0)").font(.title)
-                    Text("Total recovered:  \(self.viewModel.summary?.global?.totalRecovered ?? 0)").font(.title)
-                    Text("Total death: \(self.viewModel.summary?.global?.totalDeaths ?? 0)").font(.largeTitle)
+                    Text("Total confirmed: \(summaryStore.state?.global?.totalConfirmed ?? 0)").font(.title)
+                    Text("Total recovered:  \(summaryStore.state?.global?.totalRecovered ?? 0)").font(.title)
+                    Text("Total death: \(summaryStore.state?.global?.totalDeaths ?? 0)").font(.largeTitle)
                 }
                 
                 GeometryReader { geometry in
                     VStack {
-                        PieChart(pieChartData: self.viewModel.pieChartData)
+                        PieChart(pieChartData: self.summaryStore.pieChartData)
                             .frame(width: geometry.size.width * 0.8,
                                    height: geometry.size.width * 0.8)
                             .padding(.top, 20)
@@ -39,7 +42,7 @@ struct SummaryView: View {
             .offset(x: 0, y: -40)
             .navigationBarItems(trailing:
                 Button(action: {
-                    self.viewModel.loadSummary()
+                    self.summaryStore.loadSummary()
                 }) {
                     Image(systemName: "arrow.clockwise")
                 }
@@ -49,9 +52,9 @@ struct SummaryView: View {
             .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-
-struct SummaryView_Previews: PreviewProvider {
-    static var previews: some View {
-        SummaryView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService))
-    }
-}
+//
+//struct SummaryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SummaryView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService))
+//    }
+//}

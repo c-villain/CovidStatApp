@@ -13,6 +13,7 @@ import Covid19NetworkKit
 
 struct CountriesView: View {
     
+    @ObservedObject var summaryStore: SummaryStore<Summary, SummaryStoreActions>
     @ObservedObject var viewModel: SummaryViewModel
     @ObservedObject var casesViewModel: CasesViewModel
     @EnvironmentObject var locator: ServiceLocator
@@ -25,12 +26,12 @@ struct CountriesView: View {
         NavigationView{
             VStack{
                 SearchBar(text: $searchCountry, placeholder: "Search country")
-                List((self.viewModel.summary?.countries ?? [Country]()).filter{
+                List((self.viewModel.summaryStore.state?.countries ?? [Country]()).filter{
                     searchCountry.isEmpty ? true :
                         ($0.country?.lowercased().starts(with: searchCountry.lowercased()) ?? true)
                 }, id: \.country){
                     country in NavigationLink(
-                        destination: CountryDetail(casesViewModel: self.casesViewModel,
+                        destination: CountryDetailView(casesViewModel: self.casesViewModel,
                                                    country: country)){
                                                     CountryRow(country: country)
                     }
@@ -38,7 +39,8 @@ struct CountriesView: View {
                 }//List
                     .pullToRefresh(isShowing: $isShowing) {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            self.viewModel.loadSummary()
+                            self.summaryStore.loadSummary()
+//                            viewModel.store.
                             self.isShowing = false
                         }
                 }
@@ -74,8 +76,8 @@ struct CountriesView: View {
     } //some View
 } //View
 
-struct CountriesView_Previews: PreviewProvider {
-    static var previews: some View {
-        CountriesView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService), casesViewModel: CasesViewModel(casesService: CasesService() as CasesService))
-    }
-}
+//struct CountriesView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CountriesView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService), casesViewModel: CasesViewModel(casesService: CasesService() as CasesService))
+//    }
+//}

@@ -19,11 +19,10 @@ public struct Summary: Codable {
         self.countries = countries
         self.date = date
     }
-
+    
     public enum CodingKeys: String, CodingKey, CaseIterable { 
         case global = "Global"
         case countries = "Countries"
         case date = "Date"
     }
-
 }

@@ -7,11 +7,13 @@
 //
 
 import SwiftUI
+import Covid19NetworkKit
 
 struct ContentView: View {
     
     @EnvironmentObject var viewModel: SummaryViewModel
     @EnvironmentObject var casesViewModel: CasesViewModel
+    @EnvironmentObject var summaryStore: SummaryStore<Summary, SummaryStoreActions>
     
     @State private var selection = 0
     
@@ -19,7 +21,7 @@ struct ContentView: View {
         
         TabView(selection: $selection){
             
-            SummaryView(viewModel: self.viewModel)
+            SummaryView(viewModel: self.viewModel, summaryStore: summaryStore)
                 .tag(0)
                 .tabItem{
                     VStack{
@@ -28,7 +30,7 @@ struct ContentView: View {
                     }
             }
             
-            CountriesView(viewModel: self.viewModel, casesViewModel: casesViewModel)
+            CountriesView(summaryStore: summaryStore, viewModel: self.viewModel, casesViewModel: casesViewModel)
                 .tag(1)
                 .tabItem{
                     VStack{

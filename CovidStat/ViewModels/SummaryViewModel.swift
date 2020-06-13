@@ -12,87 +12,28 @@ import Covid19NetworkKit
 
 final class SummaryViewModel : ObservableObject
 {
-    // MARK: - Access to Model
+    // MARK: - Access to Store
     
-    @Published private(set) var summary: Summary?
-    
-    // MARK: - Access to PieChart
-    
-    @Published var pieChartData = PieChartData(data: [Double]())
-    
-    // MARK: - Access to service of loading summary
-    
-    private let summaryService: SummaryService
-    
+    @Published var summaryStore: SummaryStore<Summary, SummaryStoreActions>
+
     // MARK: - Initializer
     
-    init(summaryService: SummaryService) {
-        self.summaryService = summaryService
-        self.loadSummary()
+    init(summaryStore: SummaryStore<Summary, SummaryStoreActions>) {
+        self.summaryStore = summaryStore
     }
     
     // MARK: - Sorting Functions
-    
+
     func sortCountriesInAlphabeticalOrder() -> Void{
-        guard self.summary != nil || self.summary?.countries    != nil else {return}
-        
-        let sorted = self.summary?.countries?.sorted{
-            $0.country! < $1.country!}
-        
-        self.summary?.countries = sorted
+        self.summaryStore.dispatch(action: .AlphabeticalOrder)
     }
     
     func sortCountriesByDailyCases() -> Void{
-        guard self.summary != nil || self.summary?.countries != nil else {return}
-        
-        let sorted = self.summary?.countries?.sorted{
-            $0.newConfirmed! > $1.newConfirmed!}
-        
-        self.summary?.countries = sorted
+        self.summaryStore.dispatch(action: .DailyCases)
     }
     
     func sortCountriesByTotalDeath() -> Void{
-        guard self.summary != nil || self.summary?.countries != nil else {return}
-        
-        let sorted = self.summary?.countries?.sorted{
-            $0.totalDeaths! > $1.totalDeaths!}
-        
-        self.summary?.countries = sorted
-    }
-    
-    
-    // MARK: - Reload pie chart
-    
-    func generateChartData(_ summaryGlobal: SummaryGlobal?) -> Void {
-
-        guard summaryGlobal != nil else {return }
-        // reset view
-        pieChartData = PieChartData(data: [Double]())
-        var values: [Double] = []
-
-        values.append(Double(summaryGlobal!.totalConfirmed! - summaryGlobal!.totalRecovered! - summaryGlobal!.totalDeaths! ))
-        values.append(Double(summaryGlobal!.totalRecovered! ))
-        values.append(Double(summaryGlobal!.totalDeaths! ))
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.pieChartData = PieChartData(data: values)
-        }
-    }
-    
-    // MARK: - Load function
-    
-    func loadSummary() -> Void{
-        self.summaryService.loadCovidSummary() { result in
-            DispatchQueue.main.async{
-                switch result{
-                case .success(let stat):
-                    self.summary = stat!
-                    self.generateChartData(self.summary?.global)
-                case .failure(let error):
-                    print("Failed to load summary: " + error.localizedDescription)
-                }
-            }
-        }
+        self.summaryStore.dispatch(action: .TotalDeath)
     }
     
 }
