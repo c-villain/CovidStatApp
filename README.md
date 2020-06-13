@@ -13,7 +13,7 @@ Data is sourced from [Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVI
 
 ## Architecture
 
-Based on SwiftUI & Combine with mvvm clean architecture and a custom implementation of the Flux part of Redux.
+Based on SwiftUI & Combine with MVVM clean architecture and a custom implementation of the Flux part of Redux.
 
 ## Requirements
 
