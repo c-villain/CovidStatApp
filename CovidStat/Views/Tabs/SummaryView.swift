@@ -52,9 +52,14 @@ struct SummaryView: View {
             .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-//
-//struct SummaryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SummaryView(viewModel: SummaryViewModel(summaryService: SummaryService() as SummaryService))
-//    }
-//}
+
+struct SummaryView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        let store = SummaryStore<Summary, SummaryStoreActions>(summaryService: SummaryService() as SummaryService){_,_ in return Summary(global: nil, countries: nil, date: nil)}
+        let viewModel = SummaryViewModel(summaryStore: store)
+
+        return SummaryView(viewModel: viewModel, summaryStore: store)
+
+    }
+}
