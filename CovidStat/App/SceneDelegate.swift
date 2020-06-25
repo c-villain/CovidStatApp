@@ -39,11 +39,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         $0.totalDeaths! > $1.totalDeaths!}
                     return Summary(global: previousSummary.global, countries: sorted, date: previousSummary.date)
             }
-//            case .Load:
-//                previousSummary.countries?.sorted{
-//                    $0.totalDeaths! > $1.totalDeaths!}
-//                return previousSummary
-//            }
         }
         
         let viewModel = SummaryViewModel(summaryStore: store)
@@ -53,6 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let contentView = ContentView().environmentObject(viewModel)
             .environmentObject(casesViewModel)
             .environmentObject(store)
+            .environmentObject(locator)
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

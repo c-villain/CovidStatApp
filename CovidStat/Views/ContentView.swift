@@ -14,6 +14,7 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: SummaryViewModel
     @EnvironmentObject var casesViewModel: CasesViewModel
     @EnvironmentObject var summaryStore: SummaryStore<Summary, SummaryStoreActions>
+    @EnvironmentObject var locator: ServiceLocator
     
     @State private var selection = 0
     
@@ -30,7 +31,7 @@ struct ContentView: View {
                     }
             }
             
-            CountriesView(summaryStore: summaryStore, viewModel: self.viewModel, casesViewModel: casesViewModel)
+            CountriesView(summaryStore: summaryStore, viewModel: self.viewModel, casesViewModel: casesViewModel, locator: self._locator)
                 .tag(1)
                 .tabItem{
                     VStack{

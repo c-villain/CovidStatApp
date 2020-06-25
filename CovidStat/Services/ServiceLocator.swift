@@ -9,7 +9,6 @@
 import Foundation
 
 class ServiceLocator : ObservableObject{
-    
     private var registry : [String: Any] = [:]
     
     func registerService<T>(service: T) {

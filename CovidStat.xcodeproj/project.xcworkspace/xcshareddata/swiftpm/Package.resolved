@@ -6,17 +6,17 @@
         "repositoryURL": "https://github.com/AppPear/ChartView",
         "state": {
           "branch": null,
-          "revision": "c12c773af0b18be3abc30a5e39fc8370a6498502",
-          "version": "1.5.0"
+          "revision": "27e7e0dd1d58076e2d10e74995468c08ba2751a0",
+          "version": "1.5.1"
         }
       },
       {
         "package": "Introspect",
-        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
+        "repositoryURL": "https://github.com/timbersoftware/SwiftUI-Introspect.git",
         "state": {
-          "branch": null,
-          "revision": "de5c32c15ae169cfcb27397ffb2734dcd0e1e6d5",
-          "version": "0.1.0"
+          "branch": "master",
+          "revision": "07ec9bb46181e58cc0ea04b3191329ff8249df3c",
+          "version": null
         }
       },
       {

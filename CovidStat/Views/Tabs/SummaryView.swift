@@ -16,11 +16,21 @@ struct SummaryView: View {
     @ObservedObject var viewModel: SummaryViewModel
     @ObservedObject var summaryStore: SummaryStore<Summary, SummaryStoreActions>
     
+    var pieChartFrameMultiplier: Float{
+        get{
+            #if targetEnvironment(macCatalyst)
+            return 0.6
+            #else
+            return 0.8
+            #endif
+        }
+    }
+
     var body: some View {
         NavigationView{
             VStack{
                 Text("COVID-19 Summary").font(.largeTitle).bold()
-                Spacer()
+
                 Text("on: \(summaryStore.state?.formatedDate ?? "")").font(.title)
                 
                 Group{
@@ -32,8 +42,8 @@ struct SummaryView: View {
                 GeometryReader { geometry in
                     VStack {
                         PieChart(pieChartData: self.summaryStore.pieChartData)
-                            .frame(width: geometry.size.width * 0.8,
-                                   height: geometry.size.width * 0.8)
+                            .frame(width: geometry.size.width * CGFloat(self.pieChartFrameMultiplier),
+                                   height: geometry.size.width * CGFloat(self.pieChartFrameMultiplier))
                             .padding(.top, 20)
                     }
                 }

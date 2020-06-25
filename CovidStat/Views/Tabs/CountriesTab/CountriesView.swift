@@ -71,7 +71,7 @@ struct CountriesView: View {
             )
         } //NavigationView
         .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)})
-        .navigationViewStyle(StackNavigationViewStyle())
+//        .navigationViewStyle(StackNavigationViewStyle())
     } //some View
 } //View
 

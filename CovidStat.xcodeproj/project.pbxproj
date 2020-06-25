@@ -46,6 +46,7 @@
 		5A7593A424640019005E2255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A7593A224640019005E2255 /* LaunchScreen.storyboard */; };
 		5A7593AF24640019005E2255 /* CovidStatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7593AE24640019005E2255 /* CovidStatTests.swift */; };
 		5A7593BA24640019005E2255 /* CovidStatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7593B924640019005E2255 /* CovidStatUITests.swift */; };
+		5A93BC7D24A4AB3D00F45E0A /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 5A93BC7C24A4AB3D00F45E0A /* Introspect */; };
 		5A9ADD922492523100D4801E /* Covid19NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A9ADD912492523100D4801E /* Covid19NetworkKit */; };
 		5AA851AD246DD04F0003D74D /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA851A8246DD04F0003D74D /* CountriesView.swift */; };
 		5AA851AE246DD04F0003D74D /* CountryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA851A9246DD04F0003D74D /* CountryDetailView.swift */; };
@@ -119,6 +120,7 @@
 		5A7593B524640019005E2255 /* CovidStatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidStatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7593B924640019005E2255 /* CovidStatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidStatUITests.swift; sourceTree = "<group>"; };
 		5A7593BB24640019005E2255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A93BC7A24A4A8AC00F45E0A /* CovidStats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CovidStats.entitlements; sourceTree = "<group>"; };
 		5A9ADD8F2492517D00D4801E /* Covid19NetworkKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Covid19NetworkKit; sourceTree = "<group>"; };
 		5AA851A8246DD04F0003D74D /* CountriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
 		5AA851A9246DD04F0003D74D /* CountryDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A2B42AC246848DA00B41317 /* SwiftUIRefresh in Frameworks */,
+				5A93BC7D24A4AB3D00F45E0A /* Introspect in Frameworks */,
 				5A9ADD922492523100D4801E /* Covid19NetworkKit in Frameworks */,
 				5A2B42B3246AC95600B41317 /* SwiftUICharts in Frameworks */,
 			);
@@ -349,6 +352,7 @@
 		5A7593CC2464081A005E2255 /* CovidStat */ = {
 			isa = PBXGroup;
 			children = (
+				5A93BC7A24A4A8AC00F45E0A /* CovidStats.entitlements */,
 				5AA9FAE224644843001E6E1A /* Services */,
 				5AAA2B712466098800EDE0DD /* Extensions */,
 				5AAA2B4D24659CE500EDE0DD /* Networking */,
@@ -437,6 +441,7 @@
 				5A2B42AB246848DA00B41317 /* SwiftUIRefresh */,
 				5A2B42B2246AC95600B41317 /* SwiftUICharts */,
 				5A9ADD912492523100D4801E /* Covid19NetworkKit */,
+				5A93BC7C24A4AB3D00F45E0A /* Introspect */,
 			);
 			productName = CovidStat;
 			productReference = 5A75939424640018005E2255 /* CovidStats.app */;
@@ -513,6 +518,7 @@
 			packageReferences = (
 				5A2B42AA246848DA00B41317 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
 				5A2B42B1246AC95600B41317 /* XCRemoteSwiftPackageReference "ChartView" */,
+				5A93BC7B24A4AB3D00F45E0A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 5A75939524640018005E2255 /* Products */;
 			projectDirPath = "";
@@ -763,6 +769,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CovidStat/CovidStats.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CovidStat/SupportingFiles/Preview Content\"";
@@ -776,7 +785,11 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lexkraev.CovidStats;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.lexkraev.CovidStats;
 				PRODUCT_NAME = CovidStats;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -786,6 +799,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CovidStat/CovidStats.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CovidStat/SupportingFiles/Preview Content\"";
@@ -799,7 +815,11 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lexkraev.CovidStats;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.lexkraev.CovidStats;
 				PRODUCT_NAME = CovidStats;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -943,6 +963,14 @@
 				minimumVersion = 1.5.0;
 			};
 		};
+		5A93BC7B24A4AB3D00F45E0A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/timbersoftware/SwiftUI-Introspect.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -955,6 +983,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A2B42B1246AC95600B41317 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		5A93BC7C24A4AB3D00F45E0A /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A93BC7B24A4AB3D00F45E0A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 		5A9ADD912492523100D4801E /* Covid19NetworkKit */ = {
 			isa = XCSwiftPackageProductDependency;
