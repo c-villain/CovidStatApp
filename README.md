@@ -6,6 +6,10 @@ Access Johns Hopkins CSSE data on COVID-19 an easiest way.
 <img src="https://github.com/c-villain/CovidStatApp/blob/master/.assets/screenshots.png" alt="CovidStats Screenshots" height="320">
 </p>
 
+<p align="center">
+<img src="https://github.com/c-villain/CovidStatApp/blob/master/.assets/mac_screenshots.png" alt="CovidStats Screenshots" height="480">
+</p>
+
 ## About
 
 CovidStats provides data on COVID-19 stat based on [COVID19Api](https://covid19api.com).
