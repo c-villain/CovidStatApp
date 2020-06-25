@@ -22,7 +22,7 @@ Based on SwiftUI & Combine with MVVM clean architecture and a custom implementat
 
 ## Platforms
 
-Currently runs on iPhone and iPad.
+Currently runs on iOS and macOS.
 
 ## Privacy Policy
 
