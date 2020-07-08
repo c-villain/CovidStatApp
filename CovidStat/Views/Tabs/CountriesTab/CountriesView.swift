@@ -32,8 +32,8 @@ struct CountriesView: View {
                 }, id: \.country){
                     country in NavigationLink(
                         destination: CountryDetailView(casesViewModel: self.casesViewModel,
-                                                   country: country)){
-                                                    CountryRow(country: country)
+                                    country: country)){
+                                        CountryRow(country: country)
                     }
                     
                 }//List
