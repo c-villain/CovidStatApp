@@ -17,7 +17,8 @@ Data is sourced from [Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVI
 
 ## Architecture
 
-Based on SwiftUI & Combine with MVVM clean architecture and a custom implementation of the Flux part of Redux.
+Based on SwiftUI & Combine with MVVM clean architecture and a custom implementation of the Flux part of Redux. 
+Using CoreData for saving summary and countries summary as cache.
 
 ## Requirements
 
