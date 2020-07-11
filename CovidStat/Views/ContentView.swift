@@ -11,6 +11,7 @@ import Covid19NetworkKit
 
 struct ContentView: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
     @EnvironmentObject var viewModel: SummaryViewModel
     @EnvironmentObject var casesViewModel: CasesViewModel
     @EnvironmentObject var summaryStore: SummaryStore<Summary, SummaryStoreActions>

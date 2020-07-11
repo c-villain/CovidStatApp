@@ -14,6 +14,12 @@ extension Summary: Identifiable {
         UUID().uuidString
     }
     
+    static func from(obj: SummaryObj) -> Summary {
+        return Summary(global: SummaryGlobal.from(obj: obj.summaryGlobal),
+                       countries: obj.countries?.map(Country.from(obj:)),
+                       date: obj.date)
+    }
+    
     public var formatedDate: String{
         guard self.date != nil else {return ""}
         let formatter = DateFormatter()
@@ -31,10 +37,34 @@ extension SummaryGlobal:  Identifiable {
     public var id: String {
         UUID().uuidString
     }
+
+    
+    static func from(obj: SummaryGlobalObj?) -> SummaryGlobal? {
+        guard let obj = obj else {return nil}
+        return SummaryGlobal(newConfirmed: Int(obj.newConfirmed),
+                             totalConfirmed: Int(obj.totalConfirmed),
+                             newDeaths: Int(obj.newDeaths),
+                             totalDeaths: Int(obj.totalDeaths),
+                             newRecovered: Int(obj.newRecovered),
+                             totalRecovered: Int(obj.totalRecovered))
+    }
 }
 
 extension Country: Identifiable {
   public var id: String {
     UUID().uuidString
   }
+    
+    static func from(obj: CountryObj) -> Country {
+        return Country(country: obj.country,
+                       countryCode: obj.countryCode,
+                       slug: obj.slug,
+                       newConfirmed: Int(obj.newConfirmed),
+                       totalConfirmed: Int(obj.totalConfirmed),
+                       newDeaths: Int(obj.newDeaths),
+                       totalDeaths: Int(obj.totalDeaths),
+                       newRecovered: Int(obj.newRecovered),
+                       totalRecovered: Int(obj.totalRecovered),
+                       date: obj.date)
+    }
 }

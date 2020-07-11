@@ -16,8 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else{
+            fatalError("Unable to read persistent container context.")
+        }
+        
         let locator = ServiceLocator()
-        let summaryService = SummaryService() as SummaryService
+        let summaryService = SummaryService(context: context) as SummaryService
         locator.registerService(service: summaryService)
         locator.registerService(service: CasesService() as CasesService)
         
@@ -44,11 +48,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewModel = SummaryViewModel(summaryStore: store)
         let casesViewModel = CasesViewModel(casesService: locator.getService())
                 
+
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView().environmentObject(viewModel)
             .environmentObject(casesViewModel)
             .environmentObject(store)
             .environmentObject(locator)
+            .environment(\.managedObjectContext, context)
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -72,6 +78,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
     

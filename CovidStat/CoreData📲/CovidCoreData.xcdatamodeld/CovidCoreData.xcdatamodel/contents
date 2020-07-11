@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CountryObj" representedClassName="CountryObj" syncable="YES">
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="countryCode" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="newConfirmed" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="newDeaths" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="newRecovered" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="slug" optional="YES" attributeType="String"/>
+        <attribute name="totalConfirmed" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalDeaths" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalRecovered" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="origin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SummaryObj" inverseName="countries" inverseEntity="SummaryObj"/>
+    </entity>
+    <entity name="SummaryGlobalObj" representedClassName="SummaryGlobalObj" syncable="YES">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="newConfirmed" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="newDeaths" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="newRecovered" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalConfirmed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalDeaths" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalRecovered" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="origin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SummaryObj" inverseName="summaryGlobal" inverseEntity="SummaryObj"/>
+    </entity>
+    <entity name="SummaryObj" representedClassName="SummaryObj" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <relationship name="countries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CountryObj" inverseName="origin" inverseEntity="CountryObj"/>
+        <relationship name="summaryGlobal" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SummaryGlobalObj" inverseName="origin" inverseEntity="SummaryGlobalObj"/>
+    </entity>
+    <entity name="TotalCountryCasesObj" representedClassName="TotalCountryCasesObj" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="confirmed" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="countryCode" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="deaths" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="recovered" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="CountryObj" positionX="-54" positionY="45" width="128" height="223"/>
+        <element name="SummaryGlobalObj" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="SummaryObj" positionX="-36" positionY="117" width="128" height="103"/>
+        <element name="TotalCountryCasesObj" positionX="-18" positionY="126" width="128" height="148"/>
+    </elements>
+</model>

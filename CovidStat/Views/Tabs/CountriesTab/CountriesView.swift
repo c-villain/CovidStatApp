@@ -75,14 +75,14 @@ struct CountriesView: View {
     } //some View
 } //View
 
-struct CountriesView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        let store = SummaryStore<Summary, SummaryStoreActions>(summaryService: SummaryService() as SummaryService){_,_ in return Summary(global: nil, countries: nil, date: nil)}
-        let viewModel = SummaryViewModel(summaryStore: store)
-        let casesViewModel = CasesViewModel(casesService: CasesService() as CasesService)
-        
-        return CountriesView(summaryStore: store, viewModel: viewModel, casesViewModel: casesViewModel)
-
-    }
-}
+//struct CountriesView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        let store = SummaryStore<Summary, SummaryStoreActions>(summaryService: SummaryService() as SummaryService){_,_ in return Summary(global: nil, countries: nil, date: nil)}
+//        let viewModel = SummaryViewModel(summaryStore: store)
+//        let casesViewModel = CasesViewModel(casesService: CasesService() as CasesService)
+//        
+//        return CountriesView(summaryStore: store, viewModel: viewModel, casesViewModel: casesViewModel)
+//
+//    }
+//}

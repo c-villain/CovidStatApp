@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import CoreData
 
 public struct Summary: Codable {
     
