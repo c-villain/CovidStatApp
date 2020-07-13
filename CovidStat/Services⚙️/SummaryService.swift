@@ -11,7 +11,7 @@ import Covid19NetworkKit
 import CoreData
 import SwiftUI
 
-class SummaryService {
+class SummaryService: SummaryServiceProtocol {
     
     private let context: NSManagedObjectContext
     
@@ -94,35 +94,37 @@ class SummaryService {
         
         SummaryOfTotalCasesAPI.getSummary(){
             response, error in
-            guard let results = response, error == nil else {
-                if let error = error as NSError?{
-                    //load from data core if some error in request:
-                    self.loadSummaryFromCore(){
-                        result in
-                        switch result{
-                        case .success(let summaryFromCore):
-                            completion(.success(summaryFromCore))
-                        case .failure(let errorLoadingFromDb):
-                            print("Failed loading summary from core: " + errorLoadingFromDb.localizedDescription)
-                            print("Failed loading summary from network: " + error.localizedDescription)
-                            completion(.failure(error))
+            DispatchQueue.main.async {
+                guard let results = response, error == nil else {
+                    if let error = error as NSError?{
+                        //load from data core if some error in request:
+                        self.loadSummaryFromCore(){
+                            result in
+                            switch result{
+                            case .success(let summaryFromCore):
+                                completion(.success(summaryFromCore))
+                            case .failure(let errorLoadingFromDb):
+                                print("Failed loading summary from core: " + errorLoadingFromDb.localizedDescription)
+                                print("Failed loading summary from network: " + error.localizedDescription)
+                                completion(.failure(error))
+                            }
                         }
+                        completion(.failure(error))
                     }
-                    completion(.failure(error))
+                    return
                 }
-                return
-            }
-            
-            //save summary to core as cache:
-            DispatchQueue.main.async{
-                do{
-                    self.deletePreviousCache()
-                    try self.saveSummaryToCore(summary: results)}
-                catch{
-                    print("Failed to save summary in core: \(error)")
+                
+                //save summary to core as cache:
+                DispatchQueue.main.async{
+                    do{
+                        self.deletePreviousCache()
+                        try self.saveSummaryToCore(summary: results)}
+                    catch{
+                        print("Failed to save summary in core: \(error)")
+                    }
                 }
+                completion(.success(results))
             }
-            completion(.success(results))   
         }
     }
 }

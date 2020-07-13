@@ -1,5 +1,5 @@
 //
-//  ServiceNetworkProtocol.swift
+//  CasesServiceProtocol.swift
 //  CovidStat
 //
 //  Created by Alexander Kraev on 13.07.2020.

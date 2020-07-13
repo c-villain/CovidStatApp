@@ -10,7 +10,6 @@ import XCTest
 @testable import CovidStats
 import Covid19NetworkKit
 
-
 class CasesViewModelTests: XCTestCase {
 
     var viewModel: CasesViewModel!
