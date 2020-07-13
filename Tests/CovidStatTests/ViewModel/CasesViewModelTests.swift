@@ -51,12 +51,20 @@ class CasesViewModelTests: XCTestCase {
         viewModel.loadAllCases(countrySlug: "switzerland")
     }
     
-    func testViewModelLoadngData() throws {
+    func testViewModelLoadingData() throws {
         XCTAssertEqual(viewModel.allCases.count, 6)
         XCTAssertEqual(viewModel.totalCases.count, 6)
     }
-           
+    
     func testLastDate() {
         XCTAssertEqual(viewModel.allCases.last?.date, "2020-06-10T00:00:00Z")
+    }
+    
+    func testNewCases() {
+        //given
+        let newCasesFromFile = [Double](arrayLiteral: 20.0, 9.0, 7.0, 16.0, 23.0)
+        
+        //then
+        XCTAssertEqual(viewModel.newCases, newCasesFromFile)
     }
 }
