@@ -38,9 +38,9 @@ final class CasesViewModel : ObservableObject
             }
             outputArray.append(Double(self.totalCases[index].confirmed! - self.totalCases[index - 1].confirmed!))
         }
-        DispatchQueue.main.async{
+//        DispatchQueue.main.async{
             self.newCases.append(contentsOf: outputArray)
-        }
+//        }
     }
     
     func clearCases() -> Void{
@@ -93,17 +93,18 @@ final class CasesViewModel : ObservableObject
         
         if self.totalCases.count == 0 {
             casesService.loadAllCases(countrySlug: countrySlug) { result in
-            DispatchQueue.main.async {
-                switch result{
-                case .success(let allCases):
-                    self.totalCases.append(contentsOf: allCases.filter{
-                        ($0.date ?? "") > tenDaysString
-                    })
-                case .failure(let error):
-                    print("Faied to load summary: " + error.localizedDescription)
-                    return
-                }
-            }}
+//                DispatchQueue.main.async {
+                    switch result{
+                    case .success(let allCases):
+                        self.totalCases.append(contentsOf: allCases.filter{
+                            ($0.date ?? "") > tenDaysString
+                        })
+                    case .failure(let error):
+                        print("Faied to load summary: " + error.localizedDescription)
+                        return
+                    }
+//                }
+            }
         }
         
         self.totalCases = self.totalCases.filter{
