@@ -18,21 +18,12 @@ final class CasesViewModel : ObservableObject
     
     private(set) var allCases: [TotalCountryCases] = [TotalCountryCases]()
     
-    private let casesService: CasesService
+    private let casesService: CasesServiceProtocol
     
-    init(casesService: CasesService) {
+    init(casesService: CasesServiceProtocol) {
         self.casesService = casesService
-    }
-    
-    init(cases: [TotalCountryCases]?, casesService: CasesService){
-        self.casesService = casesService
-        guard let cases = cases else{ return }
-        self.allCases.append(contentsOf: cases)
-        self.totalCases.append(contentsOf: cases)
-        self.countNewCases()
     }
 
-    
     func countNewCases() -> Void{
         self.newCases.removeAll()
         guard self.totalCases.count > 1 else { return }
@@ -60,15 +51,13 @@ final class CasesViewModel : ObservableObject
     
     func loadAllCases(countrySlug: String) -> Void{
         casesService.loadAllCases(countrySlug: countrySlug) { result in
-            DispatchQueue.main.async {
-                switch result{
-                case .success(let allCases):
-                    self.allCases.append(contentsOf: allCases)
-                    self.totalCases.append(contentsOf: self.allCases)
-                    self.countNewCases()
-                case .failure(let error):
-                    print("Faied to load summary: " + error.localizedDescription)
-                }
+            switch result{
+            case .success(let allCases):
+                self.allCases.append(contentsOf: allCases)
+                self.totalCases.append(contentsOf: self.allCases)
+                self.countNewCases()
+            case .failure(let error):
+                print("Faied to load summary: " + error.localizedDescription)
             }
         }
     }

@@ -9,19 +9,23 @@
 import Foundation
 import Covid19NetworkKit
 
-class CasesService {
+class CasesService: CasesServiceProtocol{
     
     func loadAllCases(countrySlug: String, completion: @escaping (_ results: Result<[TotalCountryCases], Error>) ->  Void) {
-
+        
         AllCasesCountryAPI.getTotalCountryCases(country: countrySlug){
             response, error in
-            guard let results = response, error == nil else {
-                if let error = error as NSError?{
-                    completion(.failure(error))
+            DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    guard let results = response, error == nil else {
+                        if let error = error as NSError?{
+                            completion(.failure(error))
+                        }
+                        return
+                    }
+                    completion(.success(results))
                 }
-                return
             }
-            completion(.success(results))
         }
     }
 }

@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let locator = ServiceLocator()
         let summaryService = SummaryService(context: context) as SummaryService
         locator.registerService(service: summaryService)
-        locator.registerService(service: CasesService() as CasesService)
+        locator.registerService(service: CasesService() as CasesServiceProtocol)
         
         let store = SummaryStore<Summary, SummaryStoreActions>(summaryService: summaryService){
             previousSummary, action in
