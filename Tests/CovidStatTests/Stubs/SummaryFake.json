@@ -1,0 +1,85 @@
+{
+  "Global": {
+    "NewConfirmed": 100282,
+    "TotalConfirmed": 1162857,
+    "NewDeaths": 5658,
+    "TotalDeaths": 63263,
+    "NewRecovered": 15405,
+    "TotalRecovered": 230845
+  },
+  "Countries": [
+    {
+      "Country": "Virgin Islands, US",
+      "CountryCode": "VI",
+      "Slug": "virgin-islands",
+      "NewConfirmed": 0,
+      "TotalConfirmed": 0,
+      "NewDeaths": 0,
+      "TotalDeaths": 0,
+      "NewRecovered": 0,
+      "TotalRecovered": 0,
+      "Date": "2020-04-05T06:37:00Z"
+    },
+    {
+      "Country": "Wallis and Futuna Islands",
+      "CountryCode": "WF",
+      "Slug": "wallis-and-futuna-islands",
+      "NewConfirmed": 0,
+      "TotalConfirmed": 0,
+      "NewDeaths": 0,
+      "TotalDeaths": 0,
+      "NewRecovered": 0,
+      "TotalRecovered": 0,
+      "Date": "2020-04-05T06:37:00Z"
+    },
+    {
+      "Country": "Western Sahara",
+      "CountryCode": "EH",
+      "Slug": "western-sahara",
+      "NewConfirmed": 0,
+      "TotalConfirmed": 0,
+      "NewDeaths": 0,
+      "TotalDeaths": 0,
+      "NewRecovered": 0,
+      "TotalRecovered": 0,
+      "Date": "2020-04-05T06:37:00Z"
+    },
+    {
+      "Country": "Yemen",
+      "CountryCode": "YE",
+      "Slug": "yemen",
+      "NewConfirmed": 0,
+      "TotalConfirmed": 0,
+      "NewDeaths": 0,
+      "TotalDeaths": 0,
+      "NewRecovered": 0,
+      "TotalRecovered": 0,
+      "Date": "2020-04-05T06:37:00Z"
+    },
+    {
+      "Country": "Zambia",
+      "CountryCode": "ZM",
+      "Slug": "zambia",
+      "NewConfirmed": 0,
+      "TotalConfirmed": 39,
+      "NewDeaths": 0,
+      "TotalDeaths": 1,
+      "NewRecovered": 0,
+      "TotalRecovered": 2,
+      "Date": "2020-04-05T06:37:00Z"
+    },
+    {
+      "Country": "Zimbabwe",
+      "CountryCode": "ZW",
+      "Slug": "zimbabwe",
+      "NewConfirmed": 8,
+      "TotalConfirmed": 9,
+      "NewDeaths": 0,
+      "TotalDeaths": 1,
+      "NewRecovered": 0,
+      "TotalRecovered": 0,
+      "Date": "2020-04-05T06:37:00Z"
+    }
+  ],
+  "Date": "2020-04-05T06:37:00Z"
+}
