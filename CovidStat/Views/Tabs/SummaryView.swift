@@ -15,7 +15,7 @@ import CoreData
 struct SummaryView: View {
     
     @ObservedObject var viewModel: SummaryViewModel
-    @ObservedObject var summaryStore: SummaryStore<Summary, SummaryStoreActions>
+    @ObservedObject var summaryStore: SummaryStore
     
     var pieChartFrameMultiplier: Float{
         get{
@@ -67,7 +67,7 @@ struct SummaryView: View {
 struct SummaryView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let store = SummaryStore<Summary, SummaryStoreActions>(summaryService: SummaryService(context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)) as SummaryService){_,_ in return Summary(global: nil, countries: nil, date: nil)}
+        let store = SummaryStore(summaryService: SummaryService(context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)) as SummaryService)
         let viewModel = SummaryViewModel(summaryStore: store)
 
         return SummaryView(viewModel: viewModel, summaryStore: store)

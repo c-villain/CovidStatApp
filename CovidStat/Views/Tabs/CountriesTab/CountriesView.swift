@@ -14,7 +14,7 @@ import CoreData
 
 struct CountriesView: View {
     
-    @ObservedObject var summaryStore: SummaryStore<Summary, SummaryStoreActions>
+    @ObservedObject var summaryStore: SummaryStore
     @ObservedObject var viewModel: SummaryViewModel
     @ObservedObject var casesViewModel: CasesViewModel
     @EnvironmentObject var locator: ServiceLocator
@@ -78,11 +78,11 @@ struct CountriesView: View {
 
 struct CountriesView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        let store = SummaryStore<Summary, SummaryStoreActions>(summaryService: SummaryService(context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)) as SummaryService){_,_ in return Summary(global: nil, countries: nil, date: nil)}
+
+        let store = SummaryStore(summaryService: SummaryService(context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)) as SummaryService)
         let viewModel = SummaryViewModel(summaryStore: store)
         let casesViewModel = CasesViewModel(casesService: CasesService() as CasesService)
-        
+
         return CountriesView(summaryStore: store, viewModel: viewModel, casesViewModel: casesViewModel)
 
     }

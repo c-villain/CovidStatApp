@@ -9,42 +9,49 @@
 import Foundation
 import Covid19NetworkKit
 
-final class SummaryStore<Summary,Action>: ObservableObject{
+final class SummaryStore : ObservableObject{
     
     @Published var state: Summary?
     
     @Published var pieChartData = PieChartData(data: [Double]())
     
-    typealias Reducer = (Summary, Action) -> Summary
+    private let summaryService: SummaryServiceProtocol
     
-    public let reducer: Reducer
     
-    private let summaryService: SummaryService
-    
-    init(summaryService: SummaryService, reduce: @escaping Reducer) {
+    init(summaryService: SummaryServiceProtocol) {
         self.summaryService = summaryService
-        reducer = reduce
         self.loadSummary()
     }
     
-    func dispatch(action: Action) {
+    func dispatch(action: SummaryStoreActions) {
         guard state != nil else {
             self.loadSummary()
             return
         }
-        state = reducer(state!, action)
+        
+        let sorted: [Country]?
+        switch action {
+            case .AlphabeticalOrder:
+                 sorted = self.state?.countries?.sorted{
+                    $0.country! < $1.country!}
+            case .DailyCases:
+                 sorted = self.state?.countries?.sorted{
+                    $0.newConfirmed! > $1.newConfirmed!}
+            case .TotalDeath:
+                 sorted = self.state?.countries?.sorted{
+                    $0.totalDeaths! > $1.totalDeaths!}
+        }
+        self.state?.countries = sorted
     }
     
     func loadSummary() -> Void{
         self.summaryService.loadCovidSummary() { result in
-            DispatchQueue.main.async{
-                switch result{
-                case .success(let stat):
-                    self.state = stat as? Summary
-                    self.generateChartData(stat?.global)
-                case .failure(let error):
-                    print("Failed to load summary: " + error.localizedDescription)
-                }
+            switch result{
+            case .success(let stat):
+                self.state = stat
+                self.generateChartData(stat?.global)
+            case .failure(let error):
+                print("Failed to load summary: " + error.localizedDescription)
             }
         }
     }

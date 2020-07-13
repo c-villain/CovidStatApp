@@ -25,30 +25,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         locator.registerService(service: summaryService)
         locator.registerService(service: CasesService() as CasesServiceProtocol)
         
-        let store = SummaryStore<Summary, SummaryStoreActions>(summaryService: summaryService){
-            previousSummary, action in
-            switch action{
-                case .AlphabeticalOrder:
-                    let sorted = previousSummary.countries?.sorted{
-                        $0.country! < $1.country!}
-                    return Summary(global: previousSummary.global, countries: sorted, date: previousSummary.date)
-                    
-                case .DailyCases:
-                    let sorted = previousSummary.countries?.sorted{
-                        $0.newConfirmed! > $1.newConfirmed!}
-                    return Summary(global: previousSummary.global, countries: sorted, date: previousSummary.date)
-                    
-                case .TotalDeath:
-                    let sorted = previousSummary.countries?.sorted{
-                        $0.totalDeaths! > $1.totalDeaths!}
-                    return Summary(global: previousSummary.global, countries: sorted, date: previousSummary.date)
-            }
-        }
+        let store = SummaryStore(summaryService: summaryService)
         
         let viewModel = SummaryViewModel(summaryStore: store)
         let casesViewModel = CasesViewModel(casesService: locator.getService())
                 
-
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView().environmentObject(viewModel)
             .environmentObject(casesViewModel)

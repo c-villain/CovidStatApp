@@ -14,11 +14,11 @@ final class SummaryViewModel : ObservableObject
 {
     // MARK: - Access to Store
     
-    @Published var summaryStore: SummaryStore<Summary, SummaryStoreActions>
+    @Published var summaryStore: SummaryStore
 
     // MARK: - Initializer
     
-    init(summaryStore: SummaryStore<Summary, SummaryStoreActions>) {
+    init(summaryStore: SummaryStore) {
         self.summaryStore = summaryStore
     }
     

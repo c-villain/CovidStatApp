@@ -14,7 +14,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @EnvironmentObject var viewModel: SummaryViewModel
     @EnvironmentObject var casesViewModel: CasesViewModel
-    @EnvironmentObject var summaryStore: SummaryStore<Summary, SummaryStoreActions>
+    @EnvironmentObject var summaryStore: SummaryStore
     @EnvironmentObject var locator: ServiceLocator
     
     @State private var selection = 0
