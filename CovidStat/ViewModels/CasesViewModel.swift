@@ -24,6 +24,15 @@ final class CasesViewModel : ObservableObject
         self.casesService = casesService
     }
     
+    init(cases: [TotalCountryCases]?, casesService: CasesService){
+        self.casesService = casesService
+        guard let cases = cases else{ return }
+        self.allCases.append(contentsOf: cases)
+        self.totalCases.append(contentsOf: cases)
+        self.countNewCases()
+    }
+
+    
     func countNewCases() -> Void{
         self.newCases.removeAll()
         guard self.totalCases.count > 1 else { return }
@@ -39,7 +48,7 @@ final class CasesViewModel : ObservableObject
             outputArray.append(Double(self.totalCases[index].confirmed! - self.totalCases[index - 1].confirmed!))
         }
         DispatchQueue.main.async{
-        self.newCases.append(contentsOf: outputArray)
+            self.newCases.append(contentsOf: outputArray)
         }
     }
     

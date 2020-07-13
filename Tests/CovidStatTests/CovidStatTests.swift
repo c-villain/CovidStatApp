@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CovidStat
+@testable import CovidStats
 
 class CovidStatTests: XCTestCase {
 

@@ -9,7 +9,6 @@
 import Foundation
 
 enum SummaryStoreActions{
-
     case AlphabeticalOrder
     case DailyCases
     case TotalDeath

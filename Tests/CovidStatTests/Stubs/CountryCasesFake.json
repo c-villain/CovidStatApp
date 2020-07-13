@@ -1,0 +1,56 @@
+[
+  {
+    "Country": "Switzerland",
+    "CountryCode": "",
+    "Lat": "0",
+    "Lon": "0",
+    "Cases": 15922,
+    "Status": "confirmed",
+    "Date": "2020-03-30T00:00:00Z"
+  },
+  {
+    "Country": "Switzerland",
+    "CountryCode": "",
+    "Lat": "0",
+    "Lon": "0",
+    "Cases": 16605,
+    "Status": "confirmed",
+    "Date": "2020-03-31T00:00:00Z"
+  },
+  {
+    "Country": "Switzerland",
+    "CountryCode": "",
+    "Lat": "0",
+    "Lon": "0",
+    "Cases": 17768,
+    "Status": "confirmed",
+    "Date": "2020-04-01T00:00:00Z"
+  },
+  {
+    "Country": "Switzerland",
+    "CountryCode": "",
+    "Lat": "0",
+    "Lon": "0",
+    "Cases": 18827,
+    "Status": "confirmed",
+    "Date": "2020-04-02T00:00:00Z"
+  },
+  {
+    "Country": "Switzerland",
+    "CountryCode": "",
+    "Lat": "0",
+    "Lon": "0",
+    "Cases": 19606,
+    "Status": "confirmed",
+    "Date": "2020-04-03T00:00:00Z"
+  },
+  {
+    "Country": "Switzerland",
+    "CountryCode": "",
+    "Lat": "0",
+    "Lon": "0",
+    "Cases": 20505,
+    "Status": "confirmed",
+    "Date": "2020-04-04T00:00:00Z"
+  }
+]
