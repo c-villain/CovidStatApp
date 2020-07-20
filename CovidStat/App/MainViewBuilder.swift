@@ -33,6 +33,4 @@ class MainViewBuilder : Builder{
             .environment(\.managedObjectContext, CoreDataStack.shared.mainContext)
         return AnyView(contentView)
     }
-    
-    
 }
