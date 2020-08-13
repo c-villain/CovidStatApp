@@ -40,17 +40,12 @@ struct SummaryView: View {
                     Text("Total death: \(summaryStore.state?.global?.totalDeaths ?? 0)").font(.largeTitle)
                 }
                 
-                GeometryReader { geometry in
-                    VStack {
-                        PieChart(pieChartData: self.summaryStore.pieChartData)
-                            .frame(width: geometry.size.width * CGFloat(self.pieChartFrameMultiplier),
-                                   height: geometry.size.width * CGFloat(self.pieChartFrameMultiplier))
-                            .padding(.top, 20)
-                    }
-                }
-                
+                PieChart(pieChartData: self.summaryStore.pieChartData)
+                    .aspectRatio(nil, contentMode: .fit)
+                    .frame(width: UIScreen.main.bounds.width  * CGFloat(self.pieChartFrameMultiplier))
+                    .padding(.top, 40)
             }
-            .offset(x: 0, y: -40)
+            .offset( y: -40)
             .navigationBarItems(trailing:
                 Button(action: {
                     self.summaryStore.loadSummary()
