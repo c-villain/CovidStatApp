@@ -33,7 +33,6 @@ struct AboutView: View {
                 
                 Group{
                     Spacer()
-                    Spacer()
                     Text("About").font(.largeTitle).bold()
                     Spacer()
                 }
@@ -58,7 +57,6 @@ struct AboutView: View {
                 }
                 Group{
                     Spacer()
-                    Spacer()
                     Text("Contact").font(.largeTitle).bold()
                     Spacer()
                 }
@@ -71,10 +69,7 @@ struct AboutView: View {
                     Text("or email me:")
                     linkButton(link: "mailto:\(Constants.AboutConstants.email)", buttonText: Constants.AboutConstants.email).font(.headline)
                 }
-                Spacer()
-                Spacer()
-                Spacer()
-            }
+            }.padding(.bottom, 75)
         }
     }
 }
