@@ -36,10 +36,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
+        CoreDataStack.shared.saveContext()
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-        CoreDataStack.shared.saveContext()
     }
 }
 
