@@ -25,8 +25,6 @@ struct CountryDetailView: View {
             VStack(alignment: .leading){
                 Group{
                     Text("\(country.country ?? "")").font(.title).bold()
-                    Spacer()
-                    
                     Text("new confirmed: \(country.newConfirmed ?? 0)").font(.custom("", size: 22))
                     Text("new deaths: \(country.newDeaths ?? 0)").font(.custom("", size: 22))
                     Text("new recovered: \(country.newRecovered ?? 0)").font(.custom("", size: 22))
