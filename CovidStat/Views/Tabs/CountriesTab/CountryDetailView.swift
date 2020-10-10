@@ -54,9 +54,6 @@ struct CountryDetailView: View {
                         }
                         
                         Spacer()
-                        Spacer()
-                        Spacer()
-                        
                     }
                 }.offset(x: 0, y: 10)
                     .navigationBarItems(trailing:
