@@ -42,7 +42,7 @@ struct SummaryView: View {
                 
                 PieChart(pieChartData: self.summaryStore.pieChartData)
                     .aspectRatio(nil, contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width  * CGFloat(self.pieChartFrameMultiplier))
+                    .frame(width: UIScreen.main.bounds.width * CGFloat(self.pieChartFrameMultiplier))
                     .padding(.top, 40)
             }
             .offset( y: -40)
