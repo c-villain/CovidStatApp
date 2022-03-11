@@ -37,3 +37,4 @@ See [PrivacyPolicy.txt](https://raw.githubusercontent.com/c-villain/CovidStatApp
 
 This app uses [SwiftUICharts](https://github.com/AppPear/ChartView) from Andras Samu and [SwiftUIRefresh](https://github.com/siteline/SwiftUIRefresh) from Loïs Di Qual.
 
+👨🏻‍💻 Feel free to subscribe to channel **[SwiftUI dev](https://t.me/swiftui_dev)** in telegram.
